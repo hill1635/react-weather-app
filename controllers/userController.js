@@ -14,4 +14,22 @@ module.exports = {
             .then((dbModel) => res.json(dbModel))
             .catch((err) => res.status(422).json(err));
     },
+    login: function (req, res) {
+        db.find({ email: req.body.email })
+        .then((dbModel) => {
+            if (!dbModel) {
+                res.status(400);
+                return res.status(400).send({ message: "Email is incorrect."});
+            }
+            if (!bcrypt.compareSync(req.body.password, dbModel[0].password)) {
+                return res.status(400).send({ message: "Password is invalid." });
+            }
+            req.session.save(() => {
+                req.session.loggedIn = true;
+                req.session.userId = dbModel[0]._id;
+                res.status(200).json({ user: req.body.email });
+            });
+        })
+        .catch((err) => res.status(500).json(err));
+    },
 };
