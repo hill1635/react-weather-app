@@ -14,6 +14,9 @@ const UserSchema = new Schema({
         required: "Password is required.",
         validate: [({ length }) => length >= 8, "Password needs to be longer."],
     },
+    locations: {
+        type: Array,
+    },
     userCreated: {
         type: Date,
         default: Date.now,
