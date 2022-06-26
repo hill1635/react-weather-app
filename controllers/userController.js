@@ -11,7 +11,7 @@ module.exports = {
     remove: function(req, res) {
         db.findById({ _id: req.session.userId }, req.body)
             .then((dbModel) => dbModel.remove())
-            .then((dbModel) => res.json(dbModel)
+            .then((dbModel) => res.json(dbModel))
             .catch((err) => res.status(422).json(err));
     },
 };
