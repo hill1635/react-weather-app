@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Navbar() {
-  var dropdown = document.querySelector(".navbar-menu");
-  const toggle = () => {
-    dropdown.classList.add("is-active");
-  };
+  const [menuState, setMenuState] = useState("disabled");
+  var state = menuState;
+
+  useEffect(() => {
+    var dropdownBtn = document.querySelector(".navbar-burger");
+    var dropdownMenu = document.querySelector(".navbar-menu");
+
+    dropdownBtn.addEventListener("click", function() {
+      if (state == "disabled") {
+        dropdownMenu.classList.add("is-active");
+        setMenuState("enabled");
+      }
+      if (state == "enabled") {
+        dropdownMenu.classList.remove("is-active");
+        setMenuState("disabled");
+      }
+    });
+  });
 
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
@@ -20,7 +34,7 @@ function Navbar() {
           aria-label="menu"
           aria-expanded="false"
           data-target="navbarBasicExample"
-          onClick={toggle}
+          
         >
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
