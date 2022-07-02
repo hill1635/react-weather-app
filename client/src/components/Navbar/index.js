@@ -23,7 +23,7 @@ function Navbar() {
   
         <div id="navbarBasicExample" className="navbar-menu">
           <div className="navbar-start">
-            <Link to="/dashboard" className="navbar-item">Dashboard</Link>
+            <Link to="/" className="navbar-item">Dashboard</Link>
             </div>
           </div>
   
