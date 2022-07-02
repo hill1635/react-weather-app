@@ -1,4 +1,5 @@
 import React from "react";
+import DeleteBtn from "../DeleteBtn";
 
 function FiveDayDiv() {
     return (
@@ -8,6 +9,7 @@ function FiveDayDiv() {
             <span>Day Three</span>
             <span>Day Four</span>
             <span>Day Five</span>
+            <DeleteBtn />
         </div>
     );
 }
