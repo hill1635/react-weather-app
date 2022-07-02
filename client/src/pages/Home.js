@@ -5,7 +5,7 @@ function Home() {
     <div>
       <h1>Default Location Daily Forecast</h1>
       <div>
-        <img alt="icon">Weather icon goes here</img>
+        <span alt="icon">Weather icon goes here</span>
         <h2>Temp</h2>
         <p>High, low, humidity, precip, air quality</p>
         <p>Sunrise, sunset, moon stuff</p>
