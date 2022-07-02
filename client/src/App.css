@@ -6,7 +6,16 @@ main {
   background-color: white;
   border-radius: 40px;
   box-shadow: 3px 3px 10px;
-  margin: 150px;
+  margin: 150px 150px 350px 150px;
+  padding: 40px;
+  text-align: center;
+}
+
+footer {
+  color: white;
+  background-color: rgb(34, 150, 101);
+  border-radius: 40px 40px 0px 0px;
+  box-shadow: 3px 3px 10px black;
   padding: 40px;
   text-align: center;
 }
