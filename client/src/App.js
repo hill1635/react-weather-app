@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import Account from "./pages/Account";
 import "bulma/css/bulma.min.css";
 import './App.css';
 
@@ -18,6 +19,7 @@ function App() {
             <Route exact path="/dashboard" element={<Dashboard />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<SignUp />} />
+            <Route exact path="/account" element={<Account />} />
           </Routes>
       </div>
     </Router>
