@@ -3,12 +3,12 @@ import LoginBtn from "../components/LoginBtn";
 
 function Login() {
     return (
-        <div>
+        <main>
             <h1>Login</h1>
             <input type="text" placeholder="Username"></input>
             <input type="text" placeholder="Password"></input>
             <LoginBtn />
-        </div>
+        </main>
     );
 }
 

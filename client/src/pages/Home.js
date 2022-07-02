@@ -2,7 +2,7 @@ import React from "react";
 
 function Home() {
   return (
-    <div>
+    <main>
       <h1>Default Location Daily Forecast</h1>
       <div>
         <span alt="icon">Weather icon goes here</span>
@@ -13,7 +13,7 @@ function Home() {
         <div>Hourly forecast</div>
         <div>Extended forecast</div>
       </div>
-    </div>
+    </main>
   );
 }
 

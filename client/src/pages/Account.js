@@ -5,7 +5,7 @@ import CancelBtn from "../components/CancelBtn";
 
 function Account() {
   return (
-    <div>
+    <main>
       <h1>Account Info</h1><EditBtn />
       <p>First:</p><EditBtn />
       <p>Last:</p><EditBtn />
@@ -13,7 +13,7 @@ function Account() {
       <p>Location:</p><EditBtn />
       <SaveBtn />
       <CancelBtn />
-    </div>
+    </main>
   );
 }
 

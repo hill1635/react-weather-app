@@ -5,7 +5,7 @@ import FiveDayDiv from "../components/FiveDayDiv";
 
 function Dashboard() {
   return (
-    <div>
+    <main>
       <h1>Welcome to your Dashboard!</h1>
       <div className="search">
         <input type="text" placeholder="Search"></input>
@@ -15,7 +15,7 @@ function Dashboard() {
       <div className="saved">
         <FiveDayDiv />
       </div>
-    </div>
+    </main>
   );
 }
 
