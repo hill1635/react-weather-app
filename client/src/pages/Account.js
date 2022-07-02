@@ -1,5 +1,6 @@
 import React from "react";
 import EditBtn from "../components/EditBtn";
+import SaveBtn from "../components/SaveBtn";
 
 function Account() {
   return (
@@ -9,6 +10,7 @@ function Account() {
       <p>Last:</p><EditBtn />
       <p>Email:</p><EditBtn />
       <p>Location:</p><EditBtn />
+      <SaveBtn />
     </div>
   );
 }
