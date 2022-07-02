@@ -1,6 +1,7 @@
 import React from "react";
 import SaveBtn from "../components/SaveBtn";
 import CancelBtn from "../components/CancelBtn";
+import FiveDayDiv from "../components/FiveDayDiv";
 
 function Dashboard() {
   return (
@@ -11,7 +12,9 @@ function Dashboard() {
         <SaveBtn />
         <CancelBtn />
       </div>
-      <div className="saved"></div>
+      <div className="saved">
+        <FiveDayDiv />
+      </div>
     </div>
   );
 }
