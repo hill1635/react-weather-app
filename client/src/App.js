@@ -12,7 +12,7 @@ import './App.css';
 function App() {
   return (
     <Router>
-      <div>
+      <div className="background">
         <Navbar/>
           <Routes>
             <Route exact path="/" element={<Home />} />
