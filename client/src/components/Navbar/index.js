@@ -31,6 +31,7 @@ function Navbar() {
             <div className="navbar-item">
               <div className="buttons">
                 <Link to="/login">Login</Link>
+                <Link to="/signup">Sign Up</Link>
               </div>
             </div>
           </div>
