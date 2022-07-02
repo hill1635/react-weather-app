@@ -1,7 +1,4 @@
 import React from "react";
-import LoginBtn from "../LoginBtn";
-import SignupBtn from "../SignupBtn";
-import LogoutBtn from "../LogoutBtn";
 import { Link } from "react-router-dom";
 
 function Navbar() {
@@ -33,9 +30,6 @@ function Navbar() {
           <div className="navbar-end">
             <div className="navbar-item">
               <div className="buttons">
-                <LoginBtn/>
-                <SignupBtn/>
-                <LogoutBtn/>
               </div>
             </div>
           </div>
