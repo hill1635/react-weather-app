@@ -1,6 +1,7 @@
 .title {
 background-color: white;
 border-radius: 15px;
+box-shadow: 1px 1px 10px;
 color: black;
 padding: 15px;
 }
@@ -23,6 +24,7 @@ h1 {
   border-radius: 15px;
   box-shadow: 2px 2px 10px;
   margin-right: 25px;
+  margin-bottom: 15px;
   padding: 15px;
   width: fit-content;
   width: -moz-fit-content;
