@@ -45,13 +45,14 @@ function Navbar() {
       <div id="navbarBasicExample" className="navbar-menu">
         <div className="navbar-start">
           <Link to="/" className="navbar-item">
-            Dashboard
+            Home
           </Link>
         </div>
 
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="buttons">
+              <Link to="/dashboard">Dashboard</Link>
               <Link to="/login">Login</Link>
               <Link to="/signup">Sign Up</Link>
             </div>
