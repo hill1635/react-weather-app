@@ -11,6 +11,7 @@ import "bulma/css/bulma.min.css";
 import "./App.css";
 
 function App() {
+
   return (
     <Router>
       <div className="background">
