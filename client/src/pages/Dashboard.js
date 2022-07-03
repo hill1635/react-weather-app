@@ -13,7 +13,6 @@ function Dashboard() {
     var count = locationsArray.length;
     var newSave = document.querySelector("#searchInput").value;
     var newArray = [...locations, { id: count + 1, name: newSave }];
-    console.log("newArray: ", newArray)
 
     setLocations(newArray);
     API.updateLocations(JSON.stringify(newArray));
@@ -23,7 +22,6 @@ function Dashboard() {
     var dbArray = [];
     API.getLocations()
       .then((res) => {
-        console.log("getLocations: ", res.data[0].locations);
         var savedArray = JSON.parse(res.data[0].locations);
         savedArray.forEach((location) => {
           dbArray.push(location);
