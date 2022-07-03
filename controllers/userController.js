@@ -41,7 +41,7 @@ module.exports = {
       res.status(404).end();
     }
   },
-  addLocation: function (req, res) {
+  updateLocations: function (req, res) {
     db.findOneAndUpdate(req.session._id, { locations: req.params.id })
     .catch((err) => res.status(500).json(err));
   },

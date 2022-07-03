@@ -19,7 +19,7 @@ router
 
 router
     .route("/:id")
-    .put(userController.addLocation);
+    .put(userController.updateLocations);
 
 router
     .route("/:id")

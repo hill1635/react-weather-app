@@ -8,18 +8,22 @@ function Dashboard() {
   var locationsArray = [];
 
   var saveLocation = () => {
-    API.addLocation(document.querySelector("#searchInput").value);
+    locationsArray.push(document.querySelector("#searchInput").value);
+    API.updateLocations(locationsArray);
   };
 
   var getLocations = () => {
     API.getLocations()
       .then((res) => {
-        res.data[0].locations.forEach((location) => {
+        var savedArray = res.data[0].locations[0].split(",");
+        savedArray.forEach((location) => {
           locationsArray.push(location);
         });
       })
       .catch((err) => console.log(err));
   };
+
+  getLocations();
 
   return (
     <main>

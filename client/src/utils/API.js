@@ -16,7 +16,7 @@ export default {
     getLocations: function(id) {
         return axios.get("/api/users/" + id);
     },
-    addLocation: function(id) {
+    updateLocations: function(id) {
         return axios.put("/api/users/" + id);
     }
 };
