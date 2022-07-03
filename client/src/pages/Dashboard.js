@@ -10,15 +10,19 @@ function Dashboard() {
   var locationsArray = [...locations];
 
   var saveLocation = () => {
-    setLocations(...locations, document.querySelector("#searchInput").value);
-    API.updateLocations(locations);
+    var newArray = [...locations, { name: document.querySelector("#searchInput").value }];
+    console.log("newArray: ", newArray)
+
+    setLocations(newArray);
+    API.updateLocations(JSON.stringify(newArray));
   };
 
   var getLocations = () => {
     var dbArray = [];
     API.getLocations()
       .then((res) => {
-        var savedArray = res.data[0].locations[0].split(",");
+        console.log("getLocations: ", res.data[0].locations);
+        var savedArray = JSON.parse(res.data[0].locations);
         savedArray.forEach((location) => {
           dbArray.push(location);
         });

@@ -8,7 +8,7 @@ var propsArray = [...props.locations];
     <div className="fiveDayDiv">
       {props.locations.map((location) => (
         <div key={props.locations.indexOf(location)}>
-          <h1>{location}</h1>
+          <h1>{location.name}</h1>
           <span>Day One</span>
           <span>Day Two</span>
           <span>Day Three</span>
