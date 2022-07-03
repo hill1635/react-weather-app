@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./style.css";
 
 function Navbar() {
-  const [menuState, setMenuState] = useState("");
+  const [menuState, setMenuState] = useState("disabled");
   var state = menuState;
 
   useEffect(() => {
