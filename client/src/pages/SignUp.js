@@ -7,7 +7,8 @@ function SignUp() {
     API.createUser({
       email: document.querySelector("#userInput").value,
       password: document.querySelector("#passwordInput").value
-    });
+    })
+    .then(() => window.location.href = "/login"); 
   };
 
   return (
