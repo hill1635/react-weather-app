@@ -5,12 +5,20 @@ import FiveDayDiv from "../components/FiveDayDiv";
 import API from "../utils/API";
 
 function Dashboard() {
+  var locationsArray = [];
+
   var saveLocation = () => {
     API.addLocation(document.querySelector("#searchInput").value);
   };
 
   var getLocations = () => {
-    API.getLocations();
+    API.getLocations()
+      .then((res) => {
+        res.data[0].locations.forEach((location) => {
+          locationsArray.push(location);
+        });
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
