@@ -1,8 +1,8 @@
 import React from "react";
 
-function LoginBtn() {
+function LoginBtn(props) {
     return (
-        <button>Log In</button>
+        <button onClick={props.login}>Log In</button>
     );
 }
 
