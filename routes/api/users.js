@@ -21,4 +21,8 @@ router
     .route("/:id")
     .put(userController.addLocation);
 
+router
+    .route("/:id")
+    .get(userController.getLocations);
+
 module.exports = router;
