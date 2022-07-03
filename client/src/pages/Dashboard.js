@@ -10,7 +10,9 @@ function Dashboard() {
   var locationsArray = [...locations];
 
   var saveLocation = () => {
-    var newArray = [...locations, { name: document.querySelector("#searchInput").value }];
+    var count = locationsArray.length;
+    var newSave = document.querySelector("#searchInput").value;
+    var newArray = [...locations, { id: count + 1, name: newSave }];
     console.log("newArray: ", newArray)
 
     setLocations(newArray);
