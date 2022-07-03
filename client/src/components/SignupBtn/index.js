@@ -1,8 +1,8 @@
 import React from "react";
 
-function SignupBtn() {
+function SignupBtn(props) {
     return (
-        <button>Sign Up</button>
+        <button onClick={props.submit}>Sign Up</button>
     );
 }
 
