@@ -18,7 +18,7 @@ router
     .post(userController.logout);
 
 router
-    .route("/locations")
-    .put(userController.add);
+    .route("/:id")
+    .put(userController.addLocation);
 
 module.exports = router;
