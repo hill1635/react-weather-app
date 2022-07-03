@@ -12,5 +12,8 @@ export default {
     },
     logout: function() {
         return axios.post("/api/users/logout");
+    },
+    addLocation: function() {
+        return axios.put("/api/users/locations");
     }
 };
