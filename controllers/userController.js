@@ -47,7 +47,7 @@ module.exports = {
   },
   getLocations: function(req, res) {
     db.find({ _id: req.session.userId })
-    .then((dbModel) => console.log("dbModel: ", dbModel))
+    .then((dbModel) => res.json(dbModel))
     .catch((err) => res.status(500).json(err));
   }
 };

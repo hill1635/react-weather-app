@@ -9,11 +9,16 @@ function Dashboard() {
     API.addLocation(document.querySelector("#searchInput").value);
   };
 
+  var getLocations = () => {
+    API.getLocations();
+  };
+
   return (
     <main>
       <h1>Welcome to your Dashboard!</h1>
       <div className="search">
         <input type="text" placeholder="Search" id="searchInput"></input>
+        <button onClick={getLocations}>Get</button>
         <SaveBtn save={saveLocation} />
         <CancelBtn />
       </div>
