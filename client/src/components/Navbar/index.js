@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import LogoutBtn from "../LogoutBtn";
 import "./style.css";
 
 function Navbar() {
@@ -60,6 +61,9 @@ function Navbar() {
               </div>
               <div className="navBtn">
                 <Link to="/account" className="navbar-item p-0">Account</Link>
+              </div>
+              <div className="navBtn">
+                <LogoutBtn />
               </div>
             </div>
           </div>
