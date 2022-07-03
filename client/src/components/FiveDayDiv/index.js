@@ -6,7 +6,7 @@ function FiveDayDiv(props) {
   return (
     <div className="fiveDayDiv">
       {props.locations.map((location) => (
-        <div key={props.locations.id}>
+        <div key={location.id} data-id={location.id}>
           <h1>{location.name}</h1>
           <span>Day One</span>
           <span>Day Two</span>

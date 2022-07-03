@@ -1,8 +1,11 @@
 import React from "react";
 
 function DeleteBtn() {
+    var info = (event) => {
+        console.log("this: ", event);
+    };
     return (
-        <button>Delete</button>
+        <button onClick={e => info(e.target.parentNode)}>Delete</button>
     );
 }
 
