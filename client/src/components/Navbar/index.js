@@ -10,16 +10,16 @@ function Navbar() {
     var dropdownBtn = document.querySelector(".navbar-burger");
     var dropdownMenu = document.querySelector(".navbar-menu");
 
-    // dropdownBtn.addEventListener("click", function () {
-    //   if (state === "disabled") {
-    //     dropdownMenu.classList.add("is-active");
-    //     setMenuState("enabled");
-    //   }
-    //   if (state === "enabled") {
-    //     dropdownMenu.classList.remove("is-active");
-    //     setMenuState("disabled");
-    //   }
-    // });
+    dropdownBtn.addEventListener("click", function () {
+      if (state === "disabled") {
+        dropdownMenu.classList.add("is-active");
+        setMenuState("enabled");
+      }
+      if (state === "enabled") {
+        dropdownMenu.classList.remove("is-active");
+        setMenuState("disabled");
+      }
+    });
   });
 
   return (
