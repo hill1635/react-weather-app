@@ -31,7 +31,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 mongoose.connect(
-    process.env.MONGODB_URI || "mongodb://localhost/react-weather-app");
+    process.env.MONGODB_URI || "mongodb://127.0.0.1/react-weather-app");
 
 app.listen(PORT, function () {
     console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);

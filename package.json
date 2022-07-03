@@ -33,5 +33,9 @@
     "if-env": "^1.0.4",
     "mongoose": "^6.4.0",
     "react-router-dom": "^6.3.0"
+  },
+  "devDependencies": {
+    "concurrently": "^7.2.2",
+    "nodemon": "^2.0.18"
   }
 }
