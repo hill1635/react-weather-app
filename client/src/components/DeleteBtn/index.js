@@ -1,11 +1,17 @@
 import React from "react";
+import API from "../../utils/API";
 
-function DeleteBtn() {
-    var info = (event) => {
-        console.log("this: ", event);
+function DeleteBtn(props) {
+    var locations = props.locations;
+    var info = (id) => {
+        var index = locations.findIndex(obj => obj.id == id);
+        locations.splice(index, 1);
+        API.updateLocations(JSON.stringify(locations));
+        props.setLocations(locations);
     };
+
     return (
-        <button onClick={e => info(e.target.parentNode)}>Delete</button>
+        <button onClick={e => info(e.target.parentNode.dataset.id)}>Delete</button>
     );
 }
 

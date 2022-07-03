@@ -13,7 +13,7 @@ function FiveDayDiv(props) {
           <span>Day Three</span>
           <span>Day Four</span>
           <span>Day Five</span>
-          <DeleteBtn />
+          <DeleteBtn locations={props.locations} setLocations={props.setLocations} getLocations={props.getLocations}/>
         </div>
       ))}
     </div>

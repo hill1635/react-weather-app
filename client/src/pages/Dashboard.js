@@ -10,9 +10,13 @@ function Dashboard() {
   var locationsArray = [...locations];
 
   var saveLocation = () => {
-    var count = locationsArray.length;
+    var lastId = 0;
+    if (locationsArray.length > 0) {
+      lastId = locationsArray[locationsArray.length - 1].id;
+    }
+
     var newSave = document.querySelector("#searchInput").value;
-    var newArray = [...locations, { id: count + 1, name: newSave }];
+    var newArray = [...locations, { id: lastId + 1, name: newSave }];
 
     setLocations(newArray);
     API.updateLocations(JSON.stringify(newArray));
@@ -22,11 +26,13 @@ function Dashboard() {
     var dbArray = [];
     API.getLocations()
       .then((res) => {
-        var savedArray = JSON.parse(res.data[0].locations);
-        savedArray.forEach((location) => {
-          dbArray.push(location);
-        });
-        setLocations(dbArray);
+        if (res.data[0].locations.length > 0) {
+          var savedArray = JSON.parse(res.data[0].locations);
+          savedArray.forEach((location) => {
+            dbArray.push(location);
+          });
+          setLocations(dbArray);
+        }
       })
       .catch((err) => console.log(err));
   };
@@ -42,7 +48,11 @@ function Dashboard() {
         <CancelBtn />
       </div>
       <div className="saved">
-        <FiveDayDiv locations={locationsArray} />
+        <FiveDayDiv
+          locations={locations}
+          setLocations={setLocations}
+          getLocations={getLocations}
+        />
       </div>
     </main>
   );
