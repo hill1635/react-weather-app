@@ -23,6 +23,6 @@ export default {
         return axios.get("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=formatted_address%2Cname%2Cgeometry&input=" + search + "&inputtype=textquery&key=" + process.env.REACT_APP_GOOGLE_API_KEY);
     },
     searchWeather: function(lat, long) {
-        return axios.get("https://api.openweathermap.org/data/3.0/onecall?lat=" + lat + "&" + "lon=" + long + "&appid=" + process.env.REACT_APP_WEATHERMAP_API_KEY);
+        return axios.get("http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + long + "&units=imperial&appid=" + process.env.REACT_APP_WEATHERMAP_API_KEY);
     },
 };

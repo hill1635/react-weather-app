@@ -1,6 +1,14 @@
 import React from "react";
+import API from "../utils/API";
 
 function Home() {
+  var getWeather = () => {
+    API.searchWeather(40.758701, -111.876183)
+    .then((res) => console.log("res: ", res.data));
+  };
+
+  getWeather();
+
   return (
     <main>
       <h1>Default Location Daily Forecast</h1>
