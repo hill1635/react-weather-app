@@ -1,16 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import API from "../utils/API";
 
 function Home() {
+  const [weather, setWeather] = useState({});
+
   var currentForecast = () => {
     API.getCurrent(40.758701, -111.876183)
-    .then((res) => console.log("res: ", res.data));
+    .then((res) => {
+      var weatherObj = {
+        overview: res.data.weather[0].main,
+        date: new Date(res.data.dt),
+        temp: res.data.main.temp,
+        sunrise: new Date(res.data.sys.sunrise),
+        sunset: new Date(res.data.sys.sunset),
+        windSpeed: res.data.wind.speed,
+        windGust: res.data.wind.gust
+      };
+      console.log(weatherObj);
+    });
   };
 
   var fiveDayForecast = () => {
-    API.getFiveDay(40.758701, -111.876183)
-    .then((res) => console.log("res: ", res.data));
+    API.getFiveDay(40.758701, -111.876183).then((res) =>
+      console.log("res: ", res.data)
+    );
   };
+
+  // currentForecast();
 
   return (
     <main>
