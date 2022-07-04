@@ -10,6 +10,10 @@ import "./Home.css";
 function Home() {
   var weather = {};
 
+  var updateHTML = (tag, value) => {
+    document.querySelector(tag).innerHTML = value;
+  }
+
   var getCurrent = () => {
     API.getSevenDay(40.758701, -111.876183).then((res) => {
       // weather = {
