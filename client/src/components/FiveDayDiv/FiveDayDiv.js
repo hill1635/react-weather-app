@@ -1,5 +1,5 @@
 import React from "react";
-import DeleteBtn from "../DeleteBtn";
+import DeleteBtn from "../buttons/DeleteBtn";
 
 function FiveDayDiv(props) {
 

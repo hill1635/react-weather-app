@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import LogoutBtn from "../LogoutBtn";
+import LogoutBtn from "../buttons/LogoutBtn";
 import "./style.css";
 
 function Navbar() {

@@ -1,7 +1,7 @@
 import React from "react";
-import EditBtn from "../components/EditBtn";
-import SaveBtn from "../components/SaveBtn";
-import CancelBtn from "../components/CancelBtn";
+import EditBtn from "../components/buttons/EditBtn";
+import SaveBtn from "../components/buttons/SaveBtn";
+import CancelBtn from "../components/buttons/CancelBtn";
 
 function Account() {
   return (

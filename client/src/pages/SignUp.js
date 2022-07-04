@@ -1,5 +1,5 @@
 import React from "react";
-import SignupBtn from "../components/SignupBtn";
+import SignupBtn from "../components/buttons/SignupBtn";
 import API from "../utils/API";
 
 function SignUp() {
