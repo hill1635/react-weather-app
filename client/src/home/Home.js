@@ -16,10 +16,10 @@ function Home() {
     document.querySelector(tag).innerHTML = value;
   }
 
-  var getAQI = () => {
-    API.getAQI(lat, long)
-      .then((res) => console.log("AQI: ", res.data));
-  };
+  // var getAQI = () => {
+  //   API.getAQI(lat, long)
+  //     .then((res) => console.log("AQI: ", res.data));
+  // };
 
   var getCurrent = () => {
     API.getSevenDay(lat, long).then((res) => {
