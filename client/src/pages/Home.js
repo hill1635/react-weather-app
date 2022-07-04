@@ -2,6 +2,11 @@ import React from "react";
 import API from "../utils/API";
 
 function Home() {
+  var currentForecast = () => {
+    API.getCurrent(40.758701, -111.876183)
+    .then((res) => console.log("res: ", res.data));
+  };
+
   var fiveDayForecast = () => {
     API.getFiveDay(40.758701, -111.876183)
     .then((res) => console.log("res: ", res.data));
