@@ -1,5 +1,6 @@
 import React from "react";
 import API from "../utils/API";
+import Main from "./components/Main";
 import "./Home.css";
 
 function Home() {
@@ -27,10 +28,7 @@ function Home() {
     <main className="text-center">
       <div className="row mx-auto mb-5">
         <div className="col col-6">
-          <section className="currentMain mx-auto row h-100">
-            <h1>Salt Lake City</h1>
-            <span alt="icon"></span>
-          </section>
+          <Main />
         </div>
         <div className="col col-4 mx-auto">
           <section className="currentTemp row mb-3">
