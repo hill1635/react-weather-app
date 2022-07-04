@@ -30,7 +30,7 @@ function Home() {
 
   return (
     <main className="text-center">
-      <div className="row mx-auto mb-5">
+      <div className="row mx-auto mb-4">
         <div className="col col-6">
           <Main />
         </div>
