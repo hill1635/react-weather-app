@@ -8,6 +8,10 @@ import SignUp from "./pages/SignUp";
 import Account from "./pages/Account";
 import Footer from "./components/Footer";
 import "bulma/css/bulma.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 import "./App.css";
 
 function App() {
