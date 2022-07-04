@@ -18,5 +18,8 @@ export default {
     },
     updateLocations: function(id) {
         return axios.put("/api/users/" + id);
+    },
+    searchLocation: function(search) {
+        return axios.get("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=formatted_address%2Cname%2Cgeometry&input=" + search + "&inputtype=textquery&key=" + process.env.REACT_APP_GOOGLE_API_KEY);
     }
 };

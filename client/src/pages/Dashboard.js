@@ -14,12 +14,25 @@ function Dashboard() {
     if (locationsArray.length > 0) {
       lastId = locationsArray[locationsArray.length - 1].id;
     }
+    
+    var inputValue = document.querySelector("#searchInput").value;
 
-    var newSave = document.querySelector("#searchInput").value;
-    var newArray = [...locations, { id: lastId + 1, name: newSave }];
+    API.searchLocation(inputValue)
+    .then((res) => {
+      console.log("resData: ", res.data.candidates[0]);
+      var prefix = res.data.candidates[0];
+      var newLocation = {
+        id: lastId + 1,
+        name: prefix.formatted_address,
+        lat: prefix.geometry.location.lat,
+        lng: prefix.geometry.location.lng
+      };
+      var newArray = [...locations, newLocation];
+      setLocations(newArray);
+      API.updateLocations(JSON.stringify(newArray));
+    });
 
-    setLocations(newArray);
-    API.updateLocations(JSON.stringify(newArray));
+    
   };
 
   var getLocations = () => {
