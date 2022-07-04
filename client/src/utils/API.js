@@ -27,5 +27,8 @@ export default {
     },
     getCurrent: function(lat, long) {
         return axios.get("https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long + "&units=imperial&appid=" + process.env.REACT_APP_WEATHERMAP_API_KEY);
-    }
+    },
+    getAQI: function(lat, long) {
+        return axios.get("http://api.airvisual.com/v2/nearest_station?lat="+ lat + "&lon=" + long + "&key=" + process.env.REACT_APP_AIRVISUAL_API_KEY);
+    },
 };

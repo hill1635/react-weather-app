@@ -8,14 +8,21 @@ import Astronomy from "./components/Astronomy";
 import "./Home.css";
 
 function Home() {
+  var lat = 40.758701;
+  var long = -111.876183;
   var weather = {};
 
   var updateHTML = (tag, value) => {
     document.querySelector(tag).innerHTML = value;
   }
 
+  var getAQI = () => {
+    API.getAQI(lat, long)
+      .then((res) => console.log("AQI: ", res.data));
+  };
+
   var getCurrent = () => {
-    API.getSevenDay(40.758701, -111.876183).then((res) => {
+    API.getSevenDay(lat, long).then((res) => {
       var current = res.data.current;
       var daily= res.data.daily[0];
 
@@ -26,6 +33,7 @@ function Home() {
 
       updateHTML("#humid", current.humidity);
       updateHTML("#uvi", current.uvi);
+      
       // weather = {
       //   overview: res.data.current.weather[0].main,
       //   date: res.data.current.dt,
@@ -40,6 +48,7 @@ function Home() {
     });
   };
 
+  // getAQI();
   // getCurrent();
 
   return (
