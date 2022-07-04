@@ -6,7 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Account from "./pages/Account";
-import Footer from "./components/navbar/Footer";
+import Footer from "./components/footer/Footer";
 import "bulma/css/bulma.min.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';

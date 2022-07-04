@@ -14,10 +14,8 @@ main {
 section {
   background-color: white;
   border-radius: 25px;
-  box-shadow: 2px 2px 10px;
-  display: inline-block;
-  padding: 40px;
-  /* width: fit-content; */
+  box-shadow: 4px 4px;
+  padding: 25px;
 }
 
 footer {

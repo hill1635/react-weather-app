@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SaveBtn from "../components/buttons/SaveBtn";
 import CancelBtn from "../components/buttons/CancelBtn";
-import FiveDayDiv from "../components/buttons/FiveDayDiv";
+import FiveDayDiv from "../components/fivedaydiv/FiveDayDiv";
 import API from "../utils/API";
 
 function Dashboard() {
