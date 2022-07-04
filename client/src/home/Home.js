@@ -37,6 +37,10 @@ function Home() {
       updateHTML("#windSpeed", current.wind_speed + "mph");
       updateHTML("#windGust", current.wind_gust + "mph");
       updateHTML("#windDirection", current.wind_deg);
+
+      updateHTML("#sunrise", current.sunrise);
+      updateHTML("#sunset", current.sunset);
+      updateHTML("#moonphase", daily.moon_phase);
       // weather = {
       //   overview: res.data.current.weather[0].main,
       //   date: res.data.current.dt,
