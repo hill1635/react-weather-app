@@ -22,8 +22,8 @@ export default {
     searchLocation: function(search) {
         return axios.get("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=formatted_address%2Cname%2Cgeometry&input=" + search + "&inputtype=textquery&key=" + process.env.REACT_APP_GOOGLE_API_KEY);
     },
-    getFiveDay: function(lat, long) {
-        return axios.get("http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + long + "&units=imperial&appid=" + process.env.REACT_APP_WEATHERMAP_API_KEY);
+    getSevenDay: function(lat, long) {
+        return axios.get("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&exclude=minutely&units=imperial&appid=" + process.env.REACT_APP_WEATHERMAP_API_KEY);
     },
     getCurrent: function(lat, long) {
         return axios.get("https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long + "&units=imperial&appid=" + process.env.REACT_APP_WEATHERMAP_API_KEY);
