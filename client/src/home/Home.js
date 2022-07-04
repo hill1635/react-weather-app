@@ -1,6 +1,7 @@
 import React from "react";
 import API from "../utils/API";
 import Main from "./components/Main";
+import Temperature from "./components/Temperature";
 import "./Home.css";
 
 function Home() {
@@ -31,12 +32,7 @@ function Home() {
           <Main />
         </div>
         <div className="col col-4 mx-auto">
-          <section className="currentTemp row mb-3">
-            <p>Current</p>
-            <p>Feels Like</p>
-            <p>High</p>
-            <p>Low</p>
-          </section>
+          <Temperature />
           <section className="row col-11 mx-auto">
             <p>Humidity</p>
             <p>Precipitation</p>
