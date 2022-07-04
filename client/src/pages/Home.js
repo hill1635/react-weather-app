@@ -22,8 +22,7 @@ function Home() {
   };
 
   // sevenDayForecast();
-  // currentForecast();
-  
+
   return (
     <main>
       <h1>Salt Lake City Forecast</h1>
