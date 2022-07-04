@@ -3,9 +3,9 @@ import React from "react";
 function Astronomy() {
   return (
     <section className="currentAstronomy col mx-5">
-      <p>Sunrise</p>
-      <p>Sunset</p>
-      <p>Moon Phase</p>
+      <p>Sunrise <span id="sunrise"></span></p>
+      <p>Sunset <span id="sunset"></span></p>
+      <p>Moon Phase <span id="moonPhase"></span></p>
     </section>
   );
 }
