@@ -16,11 +16,16 @@ function Home() {
 
   var getCurrent = () => {
     API.getSevenDay(40.758701, -111.876183).then((res) => {
-      var data = res.data;
-      updateHTML("#currentTemp", Math.round(data.current.temp));
-      updateHTML("#feelsLikeTemp", Math.round(data.current.feels_like));
-      updateHTML("#highTemp", Math.round(data.daily[0].temp.max));
-      updateHTML("#lowTemp", Math.round(data.daily[0].temp.min));
+      var current = res.data.current;
+      var daily= res.data.daily[0];
+
+      updateHTML("#currentTemp", Math.round(current.temp));
+      updateHTML("#feelsLikeTemp", Math.round(current.feels_like));
+      updateHTML("#highTemp", Math.round(daily.temp.max));
+      updateHTML("#lowTemp", Math.round(daily.temp.min));
+
+      updateHTML("#humid", current.humidity);
+      updateHTML("#uvi", current.uvi);
       // weather = {
       //   overview: res.data.current.weather[0].main,
       //   date: res.data.current.dt,
