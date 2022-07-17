@@ -7,9 +7,9 @@ import Wind from "./components/Wind";
 import Astronomy from "./components/Astronomy";
 import "./Home.css";
 
-function Home() {
-  var lat = 40.758701;
-  var long = -111.876183;
+function Home(props) {
+  var latitude = 40.758701;
+  var longitude = -111.876183;
   var weather = {};
 
   var updateHTML = (tag, value) => {
@@ -33,10 +33,9 @@ function Home() {
   //     .then((res) => console.log("AQI: ", res.data));
   // };
 
-  var getCurrent = () => {
-    API.getSevenDay(lat, long).then((res) => {
-      var current = res.data.current;
-      var daily= res.data.daily[0];
+  var getCurrent = (data) => {
+      var current = data.current;
+      var daily= data.daily[0];
 
       // updateHTML("#currentTime", 
       updateHTML("#currentTemp", Math.round(current.temp));
@@ -54,22 +53,12 @@ function Home() {
       updateHTML("#sunrise", current.sunrise);
       updateHTML("#sunset", current.sunset);
       updateHTML("#moonphase", daily.moon_phase);
-      // weather = {
-      //   overview: res.data.current.weather[0].main,
-      //   date: res.data.current.dt,
-      //   temp: res.data.current.temp,
-      //   sunrise: res.data.current.sunrise,
-      //   sunset: res.data.current.sunset,
-      //   windSpeed: res.data.current.wind_speed,
-      //   windGust: res.data.current.wind_gust,
-      //   uvi: res.data.current.uvi,
-      // };
-      console.log("res.data: ", res.data);
-    });
+
+      console.log("res.data: ", data);
   };
 
   // getAQI();
-  // getCurrent();
+  // props.getWeather(latitude, longitude, getCurrent);
 
   return (
     <main className="text-center">
