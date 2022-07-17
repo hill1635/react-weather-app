@@ -4,7 +4,8 @@ function Main() {
   return (
       <section className="currentMain mx-auto row h-100">
         <h1>Salt Lake City</h1>
-        <span alt="icon"></span>
+        <h4><span id="currentTime"></span></h4>
+        <img id="icon" src=""></img>
       </section>
   );
 }

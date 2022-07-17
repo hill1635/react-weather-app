@@ -16,6 +16,18 @@ function Home() {
     document.querySelector(tag).innerHTML = value;
   }
 
+  var convertToTime = (milliseconds) => {
+    var dayHalf = "";
+    var seconds = Math.floor(milliseconds / 1000);
+    var minutes = Math.floor(seconds / 60);
+    var hours = Math.floor(minutes / 60);
+
+    if (hours > 12) {
+      hours = hours - 12;
+      dayHalf = "PM";
+    }
+  }
+
   // var getAQI = () => {
   //   API.getAQI(lat, long)
   //     .then((res) => console.log("AQI: ", res.data));
@@ -26,6 +38,7 @@ function Home() {
       var current = res.data.current;
       var daily= res.data.daily[0];
 
+      // updateHTML("#currentTime", 
       updateHTML("#currentTemp", Math.round(current.temp));
       updateHTML("#feelsLikeTemp", Math.round(current.feels_like));
       updateHTML("#highTemp", Math.round(daily.temp.max));
@@ -34,8 +47,8 @@ function Home() {
       updateHTML("#humid", current.humidity);
       updateHTML("#uvi", current.uvi);
       
-      updateHTML("#windSpeed", current.wind_speed + "mph");
-      updateHTML("#windGust", current.wind_gust + "mph");
+      updateHTML("#windSpeed", Math.round(current.wind_speed) + "mph");
+      updateHTML("#windGust", Math.round(current.wind_gust) + "mph");
       updateHTML("#windDirection", current.wind_deg);
 
       updateHTML("#sunrise", current.sunrise);
