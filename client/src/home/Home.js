@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 import API from "../utils/API";
 import Main from "./components/Main";
 import Temperature from "./components/Temperature";
@@ -38,8 +39,8 @@ function Home(props) {
       updateHTML("#windGust", Math.round(current.wind_gust) + "mph");
       updateHTML("#windDirection", current.wind_deg);
 
-      updateHTML("#sunrise", current.sunrise);
-      updateHTML("#sunset", current.sunset);
+      updateHTML("#sunrise", moment.unix(current.sunrise).format("LT"));
+      updateHTML("#sunset", moment.unix(current.sunset).format("LT"));
       updateHTML("#moonphase", daily.moon_phase);
 
       console.log("res.data: ", data);
