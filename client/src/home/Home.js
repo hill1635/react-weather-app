@@ -1,6 +1,5 @@
 import React from "react";
 import moment from "moment";
-import API from "../utils/API";
 import Main from "./components/Main";
 import Temperature from "./components/Temperature";
 import Air from "./components/Air";
