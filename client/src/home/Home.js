@@ -33,7 +33,7 @@ function Home(props) {
   //     .then((res) => console.log("AQI: ", res.data));
   // };
 
-  var getCurrent = (data) => {
+  var updateWeather = (data) => {
       var current = data.current;
       var daily= data.daily[0];
 
@@ -58,7 +58,7 @@ function Home(props) {
   };
 
   // getAQI();
-  // props.getWeather(latitude, longitude, getCurrent);
+  // props.getWeather(latitude, longitude, updateWeather);
 
   return (
     <main className="text-center">
