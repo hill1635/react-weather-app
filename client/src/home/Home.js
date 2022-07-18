@@ -5,6 +5,7 @@ import Temperature from "./components/Temperature";
 import Air from "./components/Air";
 import Wind from "./components/Wind";
 import Astronomy from "./components/Astronomy";
+import FiveDayDiv from "../components/fivedaydiv/FiveDayDiv";
 import "./Home.css";
 
 function Home(props) {
@@ -68,7 +69,10 @@ function Home(props) {
         </div>
       </div>
       <section className="hourlyForecast col-12 mx-auto mb-5">Hourly forecast</section>
-      <section className="extendedForecast col-10 mx-auto">Extended forecast</section>
+      <section className="extendedForecast col-10 mx-auto">
+        <h3>Extended forecast</h3>
+        <FiveDayDiv />
+        </section>
     </main>
   );
 }
