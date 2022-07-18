@@ -16,18 +16,6 @@ function Home(props) {
     document.querySelector(tag).innerHTML = value;
   }
 
-  var convertToTime = (milliseconds) => {
-    var dayHalf = "";
-    var seconds = Math.floor(milliseconds / 1000);
-    var minutes = Math.floor(seconds / 60);
-    var hours = Math.floor(minutes / 60);
-
-    if (hours > 12) {
-      hours = hours - 12;
-      dayHalf = "PM";
-    }
-  }
-
   // var getAQI = () => {
   //   API.getAQI(lat, long)
   //     .then((res) => console.log("AQI: ", res.data));
