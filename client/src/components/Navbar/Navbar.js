@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import LogoutBtn from "../buttons/LogoutBtn";
-import "./style.css";
+import "./Navbar.css";
 
 function Navbar() {
   const [menuState, setMenuState] = useState("disabled");
