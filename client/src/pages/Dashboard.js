@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SaveBtn from "../components/buttons/SaveBtn";
 import CancelBtn from "../components/buttons/CancelBtn";
 import FiveDayDiv from "../components/fivedaydiv/FiveDayDiv";
@@ -20,8 +20,6 @@ function Dashboard() {
     //Google API to search for location data
     API.searchLocation(inputValue).then((res) => {
       var prefix = res.data.candidates[0];
-      console.log("locationData: ", prefix);
-
       var newLocation = {
         id: lastId + 1,
         name: prefix.formatted_address,
@@ -32,7 +30,6 @@ function Dashboard() {
       var newArray = [...locations, newLocation];
       setLocations(newArray);
       API.updateLocations(JSON.stringify(newArray));
-      console.log("searchLocation");
     });
   };
 
@@ -50,9 +47,12 @@ function Dashboard() {
         }
       })
       .catch((err) => console.log(err));
+      console.log("getLocations");
   };
 
-  getLocations();
+  useEffect(() => {
+    getLocations();
+  }, []);
 
   return (
     <main>
@@ -63,6 +63,11 @@ function Dashboard() {
         <CancelBtn />
       </div>
       <div className="saved">
+        {locations.map((location) => (
+          <div>
+            <p>{location.name}</p>
+          </div>
+        ))}
         {/* Map FiveDayDiv here */}
         {/* <FiveDayDiv
           locations={locations}
