@@ -6,35 +6,37 @@ import API from "../utils/API";
 
 function Dashboard() {
   const [locations, setLocations] = useState([]);
-
   var locationsArray = [...locations];
 
+  //Saves location to DB
   var saveLocation = () => {
     var lastId = 0;
+    var inputValue = document.querySelector("#searchInput").value;
+
     if (locationsArray.length > 0) {
       lastId = locationsArray[locationsArray.length - 1].id;
     }
-    
-    var inputValue = document.querySelector("#searchInput").value;
 
-    API.searchLocation(inputValue)
-    .then((res) => {
-      console.log("resData: ", res.data.candidates[0]);
+    //Google API to search for location data
+    API.searchLocation(inputValue).then((res) => {
       var prefix = res.data.candidates[0];
+      console.log("locationData: ", prefix);
+
       var newLocation = {
         id: lastId + 1,
         name: prefix.formatted_address,
         lat: prefix.geometry.location.lat,
-        lng: prefix.geometry.location.lng
+        lng: prefix.geometry.location.lng,
       };
+
       var newArray = [...locations, newLocation];
       setLocations(newArray);
       API.updateLocations(JSON.stringify(newArray));
+      console.log("searchLocation");
     });
-
-    
   };
 
+  // Retreives saved locations from DB
   var getLocations = () => {
     var dbArray = [];
     API.getLocations()
@@ -61,11 +63,12 @@ function Dashboard() {
         <CancelBtn />
       </div>
       <div className="saved">
-        <FiveDayDiv
+        {/* Map FiveDayDiv here */}
+        {/* <FiveDayDiv
           locations={locations}
           setLocations={setLocations}
           getLocations={getLocations}
-        />
+        /> */}
       </div>
     </main>
   );
