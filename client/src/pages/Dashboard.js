@@ -6,6 +6,7 @@ import API from "../utils/API";
 
 function Dashboard() {
   const [locations, setLocations] = useState([]);
+  const [forecasts, setForecasts] = useState([]);
   var locationsArray = [...locations];
 
   //Saves location to DB
@@ -30,6 +31,18 @@ function Dashboard() {
       var newArray = [...locations, newLocation];
       setLocations(newArray);
       API.updateLocations(JSON.stringify(newArray));
+      console.log("saveLocation");
+    });
+
+    getLocations();
+  };
+
+  //Gets weather for saved locations
+  var getWeather = (location) => {
+    API.getSevenDay(location.lat, location.lng)
+    .then((res) => {
+      setForecasts([...forecasts, res.data]);
+      console.log("forecasts: ", forecasts);
     });
   };
 
@@ -42,6 +55,7 @@ function Dashboard() {
           var savedArray = JSON.parse(res.data[0].locations);
           savedArray.forEach((location) => {
             dbArray.push(location);
+            getWeather(location);
           });
           setLocations(dbArray);
         }
@@ -63,11 +77,11 @@ function Dashboard() {
         <CancelBtn />
       </div>
       <div className="saved">
-        {locations.map((location) => (
+        {/* {locations.map((location) => (
           <div>
             <p>{location.name}</p>
           </div>
-        ))}
+        ))} */}
         {/* Map FiveDayDiv here */}
         {/* <FiveDayDiv
           locations={locations}

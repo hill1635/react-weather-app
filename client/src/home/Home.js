@@ -25,9 +25,9 @@ function Home(props) {
     var updateWeather = (data) => {
       var current = data.current;
       var daily = data.daily[0];
-      var updatedForecast = data.daily;
-      updatedForecast.shift();
-      setForecast(updatedForecast);
+      var apiData = data;
+      apiData.daily.shift();
+      setForecast(apiData);
 
       document.querySelector("#icon").src = "http://openweathermap.org/img/wn/" + daily.weather[0].icon + "@2x.png";
       updateHTML("#currentTemp", Math.round(current.temp));
@@ -75,7 +75,7 @@ function Home(props) {
       </section>
       <section className="extendedForecast col-10 mx-auto">
         <h3>Extended forecast</h3>
-        <FiveDayDiv dailyForecast={forecast} />
+        <FiveDayDiv forecasts={forecast} />
       </section>
     </main>
   );

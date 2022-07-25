@@ -4,11 +4,12 @@ import moment from "moment";
 import DeleteBtn from "../buttons/DeleteBtn";
 
 function FiveDayDiv(props) {
+  
   useEffect(() => {
-    if (Object.keys(props.dailyForecast).length !== 0) {
+    if (Object.keys(props.forecasts.daily).length !== 0) {
       var root = document.querySelector(".fiveDayDiv");
 
-      props.dailyForecast.forEach((day) => {
+      props.forecasts.daily.forEach((day) => {
       var div = document.createElement("div");
       var header = document.createElement("h4");
       var img = document.createElement("img");
