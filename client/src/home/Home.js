@@ -29,6 +29,7 @@ function Home(props) {
       updatedForecast.shift();
       setForecast(updatedForecast);
 
+      document.querySelector("#icon").src = "http://openweathermap.org/img/wn/" + daily.weather[0].icon + "@2x.png";
       updateHTML("#currentTemp", Math.round(current.temp));
       updateHTML("#feelsLikeTemp", Math.round(current.feels_like));
       updateHTML("#highTemp", Math.round(daily.temp.max));
