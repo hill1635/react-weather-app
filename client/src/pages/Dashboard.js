@@ -30,11 +30,12 @@ function Dashboard() {
 
       var newArray = [...locations, newLocation];
       setLocations(newArray);
-      API.updateLocations(JSON.stringify(newArray));
+      API.updateLocations(JSON.stringify(newArray))
+        .then(() => {
+          getLocations();
+        });
       console.log("saveLocation");
     });
-
-    getLocations();
   };
 
   //Gets weather for saved locations
@@ -77,17 +78,7 @@ function Dashboard() {
         <CancelBtn />
       </div>
       <div className="saved">
-        {/* {locations.map((location) => (
-          <div>
-            <p>{location.name}</p>
-          </div>
-        ))} */}
-        {/* Map FiveDayDiv here */}
-        {/* <FiveDayDiv
-          locations={locations}
-          setLocations={setLocations}
-          getLocations={getLocations}
-        /> */}
+        <FiveDayDiv forecasts={forecasts} />
       </div>
     </main>
   );
