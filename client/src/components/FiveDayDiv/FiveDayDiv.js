@@ -5,28 +5,26 @@ import DeleteBtn from "../buttons/DeleteBtn";
 function FiveDayDiv(props) {
   useEffect(() => {
     if (Object.keys(props.dailyForecast).length !== 0) {
-    var root = document.querySelector(".fiveDayDiv");
+      var root = document.querySelector(".fiveDayDiv");
 
-    props.dailyForecast.forEach(day => {
-      const markup = `
+      props.dailyForecast.forEach((day) => {
+        const markup = `
         <div className="dayDiv">
         <h5>${moment.unix(day.dt).format("dddd")}</h5>
-        <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png"</img>
+        <img src="http://openweathermap.org/img/wn/${
+          day.weather[0].icon
+        }@2x.png"</img>
         <span>${day.temp.max}</span>
         <span>${day.temp.min}</span>
         </div>
       `;
-      root.innerHTML += markup;
-      console.log("root: ", root);
-    });
-  }
+        root.innerHTML += markup;
+        console.log("root: ", root);
+      });
+    }
   }, [props]);
 
-  return (
-    <div className="fiveDayDiv">
-      {/* {props.dailyForecast.current */}
-    </div>
-  );
+  return <div className="fiveDayDiv"></div>;
 }
 
 export default FiveDayDiv;
