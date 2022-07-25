@@ -24,16 +24,16 @@ function Navbar() {
   });
 
   return (
-    <nav className="navbar" role="navigation" aria-label="main navigation">
+    <nav className="navbar shadow-none" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <span className="title">
-          <Link to="/">
+          <Link to="/" style={{textDecoration: "none"}}>
           <h1>Weather App</h1>
           </Link>
         </span>
 
         <button
-          className="cloud navbar-burger"
+          className="navbar-burger"
           aria-label="menu"
           aria-expanded="false"
           data-target="navbarBasicExample"
@@ -51,16 +51,16 @@ function Navbar() {
         <div className="navbar-end">
             <div className="buttons">
               <div className="navBtn">
-                <Link to="/dashboard" className="navbar-item p-0">Dashboard</Link>
+                <Link to="/dashboard" className="navbar-item p-0" style={{textDecoration: "none"}}>Dashboard</Link>
               </div>
               <div className="navBtn">
-                <Link to="/login" className="navbar-item p-0">Login</Link>
+                <Link to="/login" className="navbar-item p-0" style={{textDecoration: "none"}}>Login</Link>
               </div>
               <div className="navBtn">
-                <Link to="/signup" className="navbar-item p-0">Sign Up</Link>
+                <Link to="/signup" className="navbar-item p-0" style={{textDecoration: "none"}}>Sign Up</Link>
               </div>
               <div className="navBtn">
-                <Link to="/account" className="navbar-item p-0">Account</Link>
+                <Link to="/account" className="navbar-item p-0" style={{textDecoration: "none"}}>Account</Link>
               </div>
               <div className="navBtn">
                 <LogoutBtn />
