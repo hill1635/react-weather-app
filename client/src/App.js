@@ -20,6 +20,7 @@ function App() {
     API.getSevenDay(lat, long)
       .then((res) => {
         callback(res.data);
+        console.log("getWeather");
       });
   };
 
