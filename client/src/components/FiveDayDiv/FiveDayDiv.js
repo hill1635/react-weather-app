@@ -6,28 +6,33 @@ import DeleteBtn from "../buttons/DeleteBtn";
 function FiveDayDiv(props) {
   
   useEffect(() => {
-    if (Object.keys(props.forecasts.daily).length !== 0) {
+    if (Object.keys(props.forecasts).length !== 0) {
       var root = document.querySelector(".fiveDayDiv");
 
-      props.forecasts.daily.forEach((day) => {
-      var div = document.createElement("div");
+      props.forecasts.forEach((location) => {
+      var container = document.createElement("div");
+
+      location.daily.forEach((day) => {
+      var dayDiv = document.createElement("div");
       var header = document.createElement("h4");
       var img = document.createElement("img");
       var high = document.createElement("span");
       var low = document.createElement("span");
 
-      div.className = "dayDiv d-inline-block mx-auto";
+      dayDiv.className = "daydayDiv d-inline-block mx-auto";
       header.innerHTML = moment.unix(day.dt).format("ddd");
       img.src = "http://openweathermap.org/img/wn/" + day.weather[0].icon + "@2x.png";
       high.innerHTML = Math.round(day.temp.max, 0) + "ºF";
       low.innerHTML = Math.round(day.temp.min, 0) + "ºF";
 
-      div.append(header);
-      div.append(img);
-      div.append(high);
-      div.append(low);
-      root.append(div);
-      });
+      dayDiv.append(header);
+      dayDiv.append(img);
+      dayDiv.append(high);
+      dayDiv.append(low);
+      container.append(dayDiv);
+    });
+    root.append(container);
+    });
     }
   }, [props]);
 

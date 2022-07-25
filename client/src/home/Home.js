@@ -9,7 +9,7 @@ import FiveDayDiv from "../components/fivedaydiv/FiveDayDiv";
 import "./Home.css";
 
 function Home(props) {
-  const [forecast, setForecast] = useState({});
+  const [forecast, setForecast] = useState([]);
   var latitude = 40.758701;
   var longitude = -111.876183;
 
@@ -25,8 +25,8 @@ function Home(props) {
     var updateWeather = (data) => {
       var current = data.current;
       var daily = data.daily[0];
-      var apiData = data;
-      apiData.daily.shift();
+      var apiData = [data];
+      apiData[0].daily.shift();
       setForecast(apiData);
 
       document.querySelector("#icon").src = "http://openweathermap.org/img/wn/" + daily.weather[0].icon + "@2x.png";
