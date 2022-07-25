@@ -19,7 +19,7 @@ function FiveDayDiv(props) {
       var high = document.createElement("span");
       var low = document.createElement("span");
 
-      dayDiv.className = "daydayDiv d-inline-block mx-auto";
+      dayDiv.className = "dayDiv d-inline-block mx-auto";
       header.innerHTML = moment.unix(day.dt).format("ddd");
       img.src = "http://openweathermap.org/img/wn/" + day.weather[0].icon + "@2x.png";
       high.innerHTML = Math.round(day.temp.max, 0) + "ºF";

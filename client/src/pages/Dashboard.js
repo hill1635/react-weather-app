@@ -42,7 +42,9 @@ function Dashboard() {
   var getWeather = (location) => {
     API.getSevenDay(location.lat, location.lng)
     .then((res) => {
-      setForecasts([...forecasts, res.data]);
+      var newObj = res.data;
+      newObj.daily.pop();
+      setForecasts([...forecasts, newObj]);
       console.log("forecasts: ", forecasts);
     });
   };
