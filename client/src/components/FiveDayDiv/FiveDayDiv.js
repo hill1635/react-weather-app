@@ -19,7 +19,6 @@ function FiveDayDiv(props) {
         </div>
       `;
         root.innerHTML += markup;
-        console.log("root: ", root);
       });
     }
   }, [props]);
