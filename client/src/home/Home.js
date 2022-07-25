@@ -1,5 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
-import ReactDOM from "react-dom/client";
+import React, { useState, useEffect } from "react";
 import moment from "moment";
 import Main from "./components/Main";
 import Temperature from "./components/Temperature";
@@ -10,51 +9,49 @@ import FiveDayDiv from "../components/fivedaydiv/FiveDayDiv";
 import "./Home.css";
 
 function Home(props) {
-  const [ forecast, setForecast ] = useState({});
+  const [forecast, setForecast] = useState({});
   var latitude = 40.758701;
   var longitude = -111.876183;
 
   var updateHTML = (tag, value) => {
     document.querySelector(tag).innerHTML = value;
-  }
+  };
 
   // var getAQI = () => {
   //   API.getAQI(lat, long)
   //     .then((res) => console.log("AQI: ", res.data));
   // };
   useEffect(() => {
-
-  var updateWeather = (data) => {
-    var current = data.current;
+    var updateWeather = (data) => {
+      var current = data.current;
       var daily = data.daily[0];
       var updatedForecast = data.daily;
       updatedForecast.shift();
       setForecast(updatedForecast);
-      
+
       updateHTML("#currentTemp", Math.round(current.temp));
       updateHTML("#feelsLikeTemp", Math.round(current.feels_like));
       updateHTML("#highTemp", Math.round(daily.temp.max));
       updateHTML("#lowTemp", Math.round(daily.temp.min));
-      
+
       updateHTML("#humid", current.humidity);
       updateHTML("#uvi", current.uvi);
-      
+
       updateHTML("#windSpeed", Math.round(current.wind_speed) + "mph");
       updateHTML("#windGust", Math.round(current.wind_gust) + "mph");
       updateHTML("#windDirection", current.wind_deg);
-      
+
       updateHTML("#sunrise", moment.unix(current.sunrise).format("LT"));
       updateHTML("#sunset", moment.unix(current.sunset).format("LT"));
       updateHTML("#moonphase", daily.moon_phase);
     };
-    
+
     // getAQI();
     props.getWeather(latitude, longitude, updateWeather);
-
   }, []);
-    
-    return (
-      <main className="text-center">
+
+  return (
+    <main className="text-center">
       <div className="row mx-auto mb-4">
         <div className="col col-6">
           <Main />
@@ -72,11 +69,13 @@ function Home(props) {
           <Astronomy />
         </div>
       </div>
-      <section className="hourlyForecast col-12 mx-auto mb-5">Hourly forecast</section>
+      <section className="hourlyForecast col-12 mx-auto mb-5">
+        Hourly forecast
+      </section>
       <section className="extendedForecast col-10 mx-auto">
         <h3>Extended forecast</h3>
         <FiveDayDiv dailyForecast={forecast} />
-        </section>
+      </section>
     </main>
   );
 }
