@@ -1,0 +1,23 @@
+.weatherWrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+.currentMain {
+    width: 50%;
+}
+
+.weatherWrapper > section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px;
+    margin: 25px;
+    min-width: 33%;
+}

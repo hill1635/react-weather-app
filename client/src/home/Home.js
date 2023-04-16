@@ -58,7 +58,7 @@ function Home(props) {
   }, []);
 
   return (
-    <main className="text-center">
+    <main className="weatherWrapper">
           <Main />
           <Temperature />
           <Air />
