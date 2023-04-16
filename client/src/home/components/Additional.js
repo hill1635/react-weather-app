@@ -1,17 +1,22 @@
 import React from "react";
 
-function Air() {
+function Additional() {
     return (
-        <section className="currentAir">
-        <p>Humidity: <span id="humid"></span></p>
-        <p>UV Index: <span id="uvi"></span></p>
-        <p>Air Quality: <span id="aqi"></span></p>
-        <p>Wind: <span id="windSpeed"></span> <span id="windDirection"></span></p>
-        <p>Sunrise <span id="sunrise"></span></p>
-        <p>Sunset <span id="sunset"></span></p>
-        <p>Moon Phase <span id="moonphase"></span></p>
+        <section className="currentAdd">
+          <div className="addDiv">
+            <p>Humidity: <span id="humid"></span></p>
+            <p>Air Quality: <span id="aqi"></span></p>
+            <p>Wind Speed: <span id="windSpeed"></span></p>
+            <p>Wind Direction: <span id="windDirection"></span></p>
+          </div>
+          <div className="addDiv">
+            <p>UV Index: <span id="uvi"></span></p>
+            <p>Sunrise <span id="sunrise"></span></p>
+            <p>Sunset <span id="sunset"></span></p>
+            <p>Moon Phase <span id="moonphase"></span></p>
+          </div>
       </section>
     );
 }
 
-export default Air;
+export default Additional;

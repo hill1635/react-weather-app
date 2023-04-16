@@ -45,8 +45,12 @@
     width: 100%;
 }
 
-.currentAir {
-    flex-direction: column;
+.currentAdd {
+    flex-direction: row;
     justify-content: space-around;
     align-items: center;
+}
+
+.addDiv {
+    flex-direction: column;
 }
