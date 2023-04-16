@@ -11,17 +11,36 @@
 }
 
 .currentMain {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
     width: 50%;
+    padding: 25px;
 }
 
 .weatherWrapper > section {
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    padding: 0px;
     border: solid;
     min-width: 33%;
     margin: 25px 0px;
+}
+
+.weatherIcon {
+    width: 33%;
+}
+
+.currentWeather {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.currentHeader {
+    width: 100%;
 }
