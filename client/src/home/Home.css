@@ -44,3 +44,9 @@
 .currentHeader {
     width: 100%;
 }
+
+.currentAir {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 import Main from "./components/Main";
-import Air from "./components/Air";
-import Astronomy from "./components/Astronomy";
+import Additional from "./components/Additional";
 import FiveDayDiv from "../components/fivedaydiv/FiveDayDiv";
 import "./Home.css";
 
@@ -59,8 +58,7 @@ function Home(props) {
   return (
     <main className="weatherWrapper">
           <Main />
-          <Air />
-          <Astronomy />
+          <Additional />
       <section className="hourlyForecast col-12 mx-auto mb-5">
         Hourly forecast
       </section>
