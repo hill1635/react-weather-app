@@ -3,7 +3,6 @@ import moment from "moment";
 import Main from "./components/Main";
 import Temperature from "./components/Temperature";
 import Air from "./components/Air";
-import Wind from "./components/Wind";
 import Astronomy from "./components/Astronomy";
 import FiveDayDiv from "../components/fivedaydiv/FiveDayDiv";
 import "./Home.css";
@@ -60,23 +59,10 @@ function Home(props) {
 
   return (
     <main className="text-center">
-      <div className="row mx-auto mb-4">
-        <div className="col col-6">
           <Main />
-        </div>
-        <div className="col col-4 mx-auto">
           <Temperature />
           <Air />
-        </div>
-      </div>
-      <div className="row mb-5 mx-auto">
-        <div className="col col-6">
-          <Wind />
-        </div>
-        <div className="col">
           <Astronomy />
-        </div>
-      </div>
       <section className="hourlyForecast col-12 mx-auto mb-5">
         Hourly forecast
       </section>
