@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 import Main from "./components/Main";
-import Temperature from "./components/Temperature";
 import Air from "./components/Air";
 import Astronomy from "./components/Astronomy";
 import FiveDayDiv from "../components/fivedaydiv/FiveDayDiv";
@@ -60,7 +59,6 @@ function Home(props) {
   return (
     <main className="weatherWrapper">
           <Main />
-          <Temperature />
           <Air />
           <Astronomy />
       <section className="hourlyForecast col-12 mx-auto mb-5">
