@@ -10,7 +10,7 @@ function Home(props) {
   var latitude = 40.758701;
   var longitude = -111.876183;
   var mainData = {};
-  var addData = {};
+  var additonalData = {};
 
   var updateHTML = (tag, value) => {
     document.querySelector(tag).innerHTML = value;
@@ -40,31 +40,16 @@ function Home(props) {
       updateHTML("#feelsLikeTemp", Math.round(current.feels_like) + "&#8457");
       updateHTML("#highTemp", Math.round(daily.temp.max) + "&#8457");
       updateHTML("#lowTemp", Math.round(daily.temp.min) + "&#8457");
-      mainData = {
-        icon: daily.weather[0].icon,
-        time: moment().format('LT'),
-        temp: current.temp,
-        feels_like: current.feels_like,
-        max: daily.temp.max,
-        min: daily.temp.min,
-      }
 
       updateHTML("#humid", current.humidity + "%");
       updateHTML("#uvi", current.uvi);
+
       updateHTML("#windSpeed", Math.round(current.wind_speed) + "mph");
       updateHTML("#windDirection", degToCompass(current.wind_deg));
+
       updateHTML("#sunrise", moment.unix(current.sunrise).format("LT"));
       updateHTML("#sunset", moment.unix(current.sunset).format("LT"));
       updateHTML("#moonphase", daily.moon_phase);
-      addData = {
-        humidity: current.humidity,
-        uvi: current.uvi,
-        wind_speed: current.wind_speed,
-        wind_deg: current.wind_deg,
-        sunrise: moment.unix(current.sunrise).format("LT"),
-        sunset: moment.unix(current.sunset).format("LT"),
-      }
-      
     };
 
     // getAQI();
@@ -73,8 +58,8 @@ function Home(props) {
 
   return (
     <main className="weatherWrapper">
-          <Main updateHTML={updateHTML} data={mainData}/>
-          <Additional updateHTML={updateHTML} data={addData} />
+          <Main />
+          <Additional />
       <section className="hourlyForecast col-12 mx-auto mb-5">
         Hourly forecast
       </section>
