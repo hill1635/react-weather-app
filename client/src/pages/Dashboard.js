@@ -8,18 +8,18 @@ function Dashboard() {
   const [locations, setLocations] = useState([]);
   const [forecasts, setForecasts] = useState([]);
   var locationsArray = [...locations];
+  var forecastsArray = [...forecasts];
 
-  //Saves location to DB
-  var saveLocation = () => {
-    var lastId = 0;
-    var inputValue = document.querySelector("#searchInput").value;
+  //Updates location
+  var updateLocations = (locations) => {
+    API.updateLocations(JSON.stringify(locations))
+    .then(() => console.log("updateLocations: ", locations))
+    .catch((err) => console.log(err));
+  };
 
-    if (locationsArray.length > 0) {
-      lastId = locationsArray[locationsArray.length - 1].id;
-    }
-
-    //Google API to search for location data
-    API.searchLocation(inputValue).then((res) => {
+  //Google API call that searches for lat and long
+  var searchLocation = (location, lastId) => {
+    API.searchLocation(location).then((res) => {
       var prefix = res.data.candidates[0];
       var newLocation = {
         id: lastId + 1,
@@ -28,14 +28,25 @@ function Dashboard() {
         lng: prefix.geometry.location.lng,
       };
 
-      var newArray = [...locations, newLocation];
-      setLocations(newArray);
-      API.updateLocations(JSON.stringify(newArray))
-        .then(() => {
-          getLocations();
-        });
-      console.log("saveLocation");
-    });
+      locationsArray.push(newLocation);
+      getWeather(newLocation);
+      console.log("searchLocation: ", locations);
+    })
+    .catch((err) => console.log(err));
+  };
+  
+  //Saves location to DB
+  var saveLocation = () => {
+    var lastId = 0;
+    var inputValue = document.querySelector("#searchInput").value;
+    
+    if (locationsArray.length > 0) {
+      lastId = locationsArray[locationsArray.length - 1].id;
+    }
+    
+    searchLocation(inputValue, lastId);
+    updateLocations(locationsArray);
+    console.log("saveLocation: ", locations);
   };
 
   //Gets weather for saved locations
@@ -44,9 +55,11 @@ function Dashboard() {
     .then((res) => {
       var newObj = res.data;
       newObj.daily.pop();
-      setForecasts([...forecasts, newObj]);
-      console.log("forecasts: ", forecasts);
-    });
+      forecastsArray.push(newObj);
+      setForecasts(forecastsArray);
+      console.log("getWeather");
+    })
+    .catch((err) => console.log(err));
   };
 
   // Retreives saved locations from DB
@@ -59,8 +72,8 @@ function Dashboard() {
           savedArray.forEach((location) => {
             dbArray.push(location);
             getWeather(location);
+            setLocations(dbArray);
           });
-          setLocations(dbArray);
         }
       })
       .catch((err) => console.log(err));
