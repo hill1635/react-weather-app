@@ -1,6 +1,7 @@
 import React from "react";
 
 function Main() {
+
   return (
       <section className="currentMain">
         <h1 className="currentHeader">Salt Lake City</h1>
