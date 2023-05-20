@@ -68,7 +68,7 @@ function Home(props) {
       </section>
       <section className="extendedForecast col-10 mx-auto">
         <h3>Extended forecast</h3>
-        <FiveDayDiv forecasts={forecast} />
+        <FiveDayDiv forecast={forecast.current} />
       </section>
     </main>
   );

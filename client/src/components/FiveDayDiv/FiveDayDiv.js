@@ -1,45 +1,19 @@
 import React, { useEffect } from "react";
 import "./FiveDayDiv.css";
+import OneDayForecast from "../onedayforecast/onedayforecast";
 import moment from "moment";
 import DeleteBtn from "../buttons/DeleteBtn";
 
 function FiveDayDiv(props) {
-  
-  useEffect(() => {
-    var root = document.querySelector(".fiveDayDiv");
-    console.log("props: ", props.forecasts);
+var days = props.forecast.daily;
 
-    // if (Object.keys(props.forecasts).length !== 0) {
-
-    //   props.forecasts.forEach((location) => {
-    //   var container = document.createElement("div");
-    //   container.className = "locationContainer";
-
-    //   location.daily.forEach((day) => {
-    //   var dayDiv = document.createElement("div");
-    //   var header = document.createElement("h4");
-    //   var img = document.createElement("img");
-    //   var high = document.createElement("span");
-    //   var low = document.createElement("span");
-
-    //   dayDiv.className = "dayDiv d-inline-block mx-auto";
-    //   header.innerHTML = moment.unix(day.dt).format("ddd");
-    //   img.src = "http://openweathermap.org/img/wn/" + day.weather[0].icon + "@2x.png";
-    //   high.innerHTML = Math.round(day.temp.max, 0) + "ºF";
-    //   low.innerHTML = Math.round(day.temp.min, 0) + "ºF";
-
-    //   dayDiv.append(header);
-    //   dayDiv.append(img);
-    //   dayDiv.append(high);
-    //   dayDiv.append(low);
-    //   container.append(dayDiv);
-    // });
-    // root.append(container);
-    // });
-    // }
-  }, [props]);
-
-  return <div className="fiveDayDiv"></div>;
+  return (
+  <div className="fiveDayDiv">
+    {days.map(day => {
+      return <OneDayForecast key={day.dt} forecast={day}/>
+    })}
+  </div>
+  );
 }
 
 export default FiveDayDiv;
