@@ -57,7 +57,7 @@ function Home(props) {
 
   return (
     <main className="weatherWrapper">
-          <Main />
+          <Main forecast={forecast}/>
           <Additional />
       <section className="hourlyForecast col-12 mx-auto mb-5">
         Hourly forecast
