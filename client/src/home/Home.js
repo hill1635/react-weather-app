@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import moment from "moment";
 import Main from "./components/Main";
 import Additional from "./components/Additional";
@@ -6,14 +6,18 @@ import FiveDayDiv from "../components/fivedaydiv/FiveDayDiv";
 import "./Home.css";
 
 function Home(props) {
-  const [forecast, setForecast] = useState([]);
+  const forecast = useRef({});
   var latitude = 40.758701;
   var longitude = -111.876183;
-  var mainData = {};
-  var additonalData = {};
 
   var updateHTML = (tag, value) => {
     document.querySelector(tag).innerHTML = value;
+  };
+
+  const degToCompass = (num) => {
+    var degree = parseInt((num/22.5)+.5);
+    var directions = ["N", "NE", "NNE", "ENE", "E", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
+    return directions[(degree % 16)];
   };
 
   // var getAQI = () => {
@@ -22,19 +26,17 @@ function Home(props) {
   // };
   useEffect(() => {
     var updateWeather = (data) => {
-      var current = data.current;
-      var daily = data.daily[0];
-      var apiData = [data];
-
-
-      const degToCompass = (num) => {
-        var degree = parseInt((num/22.5)+.5);
-        var directions = ["N", "NE", "NNE", "ENE", "E", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
-        return directions[(degree % 16)];
+      forecast.current = {
+        current: data.current,
+        daily: data.daily
       };
+      var current = forecast.current.current;
+      var daily = forecast.current.daily[0];
+      var apiData = [data];
+      console.log("data:", data);
       apiData[0].daily.shift();
-      setForecast(apiData);
 
+      // ? How to get these divided out to separate components
       document.querySelector("#icon").src = "http://openweathermap.org/img/wn/" + daily.weather[0].icon + "@2x.png";
       updateHTML("#currentTemp", Math.round(current.temp) + "&#8457");
       updateHTML("#feelsLikeTemp", Math.round(current.feels_like) + "&#8457");
