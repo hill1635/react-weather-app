@@ -53,10 +53,11 @@ function Home(props) {
       updateHTML("#sunset", moment.unix(current.sunset).format("LT"));
       updateHTML("#moonphase", daily.moon_phase);
     };
+    console.log("test");
 
     // getAQI();
     props.getWeather(latitude, longitude, updateWeather);
-  }, []);
+  }, [latitude, longitude, props]);
 
   return (
     <main className="weatherWrapper">
