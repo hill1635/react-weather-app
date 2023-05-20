@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import moment from "moment";
 import Main from "./components/Main";
 import Additional from "./components/Additional";
@@ -6,7 +6,7 @@ import FiveDayDiv from "../components/fivedaydiv/FiveDayDiv";
 import "./Home.css";
 
 function Home(props) {
-  const forecast = useRef({});
+  const [forecast, setForecast] = useState({});
   var latitude = 40.758701;
   var longitude = -111.876183;
 
@@ -26,34 +26,30 @@ function Home(props) {
   // };
   useEffect(() => {
     var updateWeather = (data) => {
-      forecast.current = {
-        current: data.current,
-        daily: data.daily
-      };
-      var current = forecast.current.current;
-      var daily = forecast.current.daily[0];
-      var apiData = [data];
-      console.log("data:", data);
-      apiData[0].daily.shift();
+      setForecast(data);
+      // var current = forecast.current;
+      // var daily = forecast.daily[0];
+      // var apiData = [data];
+      // console.log("data:", data);
+      // apiData[0].daily.shift();
 
-      // ? How to get these divided out to separate components
-      document.querySelector("#icon").src = "http://openweathermap.org/img/wn/" + daily.weather[0].icon + "@2x.png";
-      updateHTML("#currentTemp", Math.round(current.temp) + "&#8457");
-      updateHTML("#feelsLikeTemp", Math.round(current.feels_like) + "&#8457");
-      updateHTML("#highTemp", Math.round(daily.temp.max) + "&#8457");
-      updateHTML("#lowTemp", Math.round(daily.temp.min) + "&#8457");
+      // // ? How to get these divided out to separate components
+      // document.querySelector("#icon").src = "http://openweathermap.org/img/wn/" + daily.weather[0].icon + "@2x.png";
+      // updateHTML("#currentTemp", Math.round(current.temp) + "&#8457");
+      // updateHTML("#feelsLikeTemp", Math.round(current.feels_like) + "&#8457");
+      // updateHTML("#highTemp", Math.round(daily.temp.max) + "&#8457");
+      // updateHTML("#lowTemp", Math.round(daily.temp.min) + "&#8457");
 
-      updateHTML("#humid", current.humidity + "%");
-      updateHTML("#uvi", current.uvi);
+      // updateHTML("#humid", current.humidity + "%");
+      // updateHTML("#uvi", current.uvi);
 
-      updateHTML("#windSpeed", Math.round(current.wind_speed) + "mph");
-      updateHTML("#windDirection", degToCompass(current.wind_deg));
+      // updateHTML("#windSpeed", Math.round(current.wind_speed) + "mph");
+      // updateHTML("#windDirection", degToCompass(current.wind_deg));
 
-      updateHTML("#sunrise", moment.unix(current.sunrise).format("LT"));
-      updateHTML("#sunset", moment.unix(current.sunset).format("LT"));
-      updateHTML("#moonphase", daily.moon_phase);
+      // updateHTML("#sunrise", moment.unix(current.sunrise).format("LT"));
+      // updateHTML("#sunset", moment.unix(current.sunset).format("LT"));
+      // updateHTML("#moonphase", daily.moon_phase);
     };
-    console.log("test");
 
     // getAQI();
     props.getWeather(latitude, longitude, updateWeather);
@@ -68,7 +64,7 @@ function Home(props) {
       </section>
       <section className="extendedForecast col-10 mx-auto">
         <h3>Extended forecast</h3>
-        <FiveDayDiv forecast={forecast.current} />
+        <FiveDayDiv forecast={forecast} />
       </section>
     </main>
   );

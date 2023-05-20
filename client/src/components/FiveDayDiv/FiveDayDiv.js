@@ -1,19 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "./FiveDayDiv.css";
-import OneDayForecast from "../onedayforecast/onedayforecast";
+import OneDayForecast from "../onedayforecast/OneDayForecast";
 import moment from "moment";
 import DeleteBtn from "../buttons/DeleteBtn";
 
 function FiveDayDiv(props) {
-var days = props.forecast.daily;
-
+  if (Object.keys(props.forecast).length > 0) {
+    console.log("props:", props.forecast);
   return (
   <div className="fiveDayDiv">
-    {days.map(day => {
-      return <OneDayForecast key={day.dt} forecast={day}/>
+    {props.forecast.daily.map(day => {
+      return <OneDayForecast key={day.dt} day={day}/>
     })}
   </div>
   );
+  }
 }
 
 export default FiveDayDiv;

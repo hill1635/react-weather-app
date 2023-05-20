@@ -1,6 +1,7 @@
 import React from "react";
 
-function OneDayForecast() {
+function OneDayForecast(props) {
+  console.log("OneDayForecast:", props);
   return <div className="oneDay">
     <div className="oneDayName"></div>
     <div className="oneDayIcon"></div>
