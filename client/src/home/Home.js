@@ -7,18 +7,22 @@ import ExtendedForecast from "../components/extendedForecast/ExtendedForecast";
 import "./Home.css";
 
 function Home(props) {
+  const defaultLocation = {
+    name: "Salt Lake City",
+    latitude: 40.7608,
+    longitude: -111.8910
+  }
   const [forecast, setForecast] = useState({});
-  var latitude = 40.758701;
-  var longitude = -111.876183;
+  const [location, setLocation] = useState(defaultLocation);
   
   useEffect(() => {
-    props.getWeather(latitude, longitude, setForecast);
-  }, [latitude, longitude, props]);
+    props.getWeather(location.latitude, location.longitude, setForecast);
+  }, [props, location]);
 
   return (
     <main className="weatherWrapper">
-          <SearchBar />
-          <Main forecast={forecast}/>
+          <SearchBar setLocation={setLocation}/>
+          <Main forecast={forecast} location={location}/>
           <Additional forecast={forecast}/>
       <section className="hourlyForecast">
         <h3>Hourly Forecast</h3>

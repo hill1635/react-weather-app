@@ -5,7 +5,7 @@ function Main(props) {
   var forecast = props.forecast;
   return (
       <section className="currentMain">
-        <h1 className="currentHeader">Salt Lake City</h1>
+        <h1 className="currentHeader">{props.location.name}</h1>
         <div className="currentWeather">
           <img className="weatherIcon" id="icon" src={"http://openweathermap.org/img/wn/" + forecast.current.weather[0].icon + "@2x.png"}></img>
           <div className="currentDetails">
