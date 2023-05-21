@@ -9,6 +9,26 @@ function Additional(props) {
     return directions[(degree % 16)];
   };
 
+  const moonPhase = (current) => {
+    var moon = {};
+    if (current > forecast.daily[1].moon_phase) {
+      moon.phase = "Waning";
+    } else if (current < forecast.daily[1].moon_phase) {
+      moon.phase = "Waxing";
+    }
+
+    if (current < .5 ) {
+      moon.shape = "Crescent";
+    } else if (current >= .5) {
+      moon.shape = "Gibbous";
+    } else if (current = 1) {
+      moon.shape = "Full Moon";
+    }
+
+    var moonPhase = current === 1 ? "Full Moon" : moon.phase + " " + moon.shape + " " + Math.round(current * 100) + "%";
+    return moonPhase;
+  };
+
   if (Object.keys(props.forecast).length > 0) {
     var forecast = props.forecast;
     return (
@@ -23,7 +43,7 @@ function Additional(props) {
             <p>UV Index: <span id="uvi">{forecast.current.uvi}</span></p>
             <p>Sunrise <span id="sunrise">{moment.unix(forecast.current.sunrise).format("LT")}</span></p>
             <p>Sunset <span id="sunset">{moment.unix(forecast.current.sunset).format("LT")}</span></p>
-            <p>Moon Phase <span id="moonphase">{forecast.daily[0].moon_phase}</span></p>
+            <p>Moon Phase <span id="moonphase">{moonPhase(forecast.daily[0].moon_phase)}</span></p>
           </div>
       </section>
     );
