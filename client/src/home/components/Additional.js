@@ -21,7 +21,7 @@ function Additional(props) {
       moon.shape = "Crescent";
     } else if (current >= .5) {
       moon.shape = "Gibbous";
-    } else if (current = 1) {
+    } else if (current === 1) {
       moon.shape = "Full Moon";
     }
 
