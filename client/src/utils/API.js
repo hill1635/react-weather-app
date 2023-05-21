@@ -31,4 +31,7 @@ export default {
     getAQI: function(lat, long) {
         return axios.get("http://api.openweathermap.org/data/2.5/air_pollution?lat=" + lat + "&lon=" + long + "&appid=" + process.env.REACT_APP_WEATHERMAP_API_KEY);
     },
+    getAQIForecast: function(lat, long) {
+        return axios.get("http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=" + lat + "&lon=" + long + "&appid=" + process.env.REACT_APP_WEATHERMAP_API_KEY);
+    }
 };

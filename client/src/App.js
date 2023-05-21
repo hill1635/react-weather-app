@@ -23,6 +23,7 @@ function App() {
         var forecastData = data;
         forecastData.current.aqi = aqiData;
         setState(forecastData);
+        console.log("forecastData:", forecastData);
       });
   };
 
