@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./home/Home";
-import Dashboard from "./pages/Dashboard";
+import SavedLocations from "./savedlocations/SavedLocations";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Account from "./pages/Account";
@@ -42,7 +42,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route exact path="/" element={<Home getWeather={getWeather} />} />
-          <Route exact path="/dashboard" element={<Dashboard />} />
+          <Route exact path="/dashboard" element={<SavedLocations />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/signup" element={<SignUp />} />
           <Route exact path="/account" element={<Account />} />

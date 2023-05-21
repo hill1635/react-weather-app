@@ -3,7 +3,7 @@ import SearchBar from "../components/searchbar/SearchBar";
 import ExtendedForecast from "../components/extendedForecast/ExtendedForecast";
 import API from "../utils/API";
 
-function Dashboard() {
+function SavedLocations() {
   const [locations, setLocations] = useState([]);
   const [forecasts, setForecasts] = useState([]);
   var locationsArray = [...locations];
@@ -97,4 +97,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default SavedLocations;
