@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Main from "./components/Main";
 import Additional from "./components/Additional";
-import FiveDayDiv from "../components/fivedaydiv/FiveDayDiv";
+import ExtendedForecast from "../components/extendedForecast/ExtendedForecast";
 import "./Home.css";
 
 function Home(props) {
@@ -29,9 +29,9 @@ function Home(props) {
       <section className="hourlyForecast col-12 mx-auto mb-5">
         Hourly forecast
       </section>
-      <section className="extendedForecast col-10 mx-auto">
+      <section className="extendedForecast">
         <h3>Extended forecast</h3>
-        <FiveDayDiv forecast={forecast} />
+        <ExtendedForecast forecast={forecast} />
       </section>
     </main>
   );

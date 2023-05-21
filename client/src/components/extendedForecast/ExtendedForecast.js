@@ -1,15 +1,16 @@
 import React, { useEffect, useRef } from "react";
-import "./FiveDayDiv.css";
+import "./ExtendedForecast.css";
 import OneDayForecast from "../onedayforecast/OneDayForecast";
 import moment from "moment";
 import DeleteBtn from "../buttons/DeleteBtn";
 
-function FiveDayDiv(props) {
+function ExtendedForecast(props) {
   if (Object.keys(props.forecast).length > 0) {
-    console.log("props:", props.forecast);
+    var extendedForecast = props.forecast.daily;
+    extendedForecast.pop();
   return (
-  <div className="fiveDayDiv">
-    {props.forecast.daily.map(day => {
+  <div className="extendedForecast">
+    {extendedForecast.map(day => {
       return <OneDayForecast key={day.dt} day={day}/>
     })}
   </div>
@@ -17,4 +18,4 @@ function FiveDayDiv(props) {
   }
 }
 
-export default FiveDayDiv;
+export default ExtendedForecast;

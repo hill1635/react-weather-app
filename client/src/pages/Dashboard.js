@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SaveBtn from "../components/buttons/SaveBtn";
 import CancelBtn from "../components/buttons/CancelBtn";
-import FiveDayDiv from "../components/fivedaydiv/FiveDayDiv";
+import ExtendedForecast from "../components/extendedForecast/ExtendedForecast";
 import API from "../utils/API";
 
 function Dashboard() {
@@ -93,7 +93,7 @@ function Dashboard() {
         <CancelBtn />
       </div>
       <div className="saved">
-        <FiveDayDiv forecasts={forecasts} />
+        <ExtendedForecast forecasts={forecasts} />
       </div>
     </main>
   );
