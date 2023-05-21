@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SearchBar from "../components/searchbar/SearchBar";
+import LocationsDB from "./components/LocationsDB";
 import ExtendedForecast from "../components/extendedForecast/ExtendedForecast";
 import API from "../utils/API";
 
@@ -88,11 +89,7 @@ function SavedLocations() {
     <main>
       <h1>Welcome to your Dashboard!</h1>
       <SearchBar />
-      <div className="saved">
-        {forecasts.map((forecast) => {
-        <ExtendedForecast forecast={forecast} />
-        })}
-      </div>
+      <LocationsDB />
     </main>
   );
 }
