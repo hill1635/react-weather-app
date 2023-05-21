@@ -11,7 +11,6 @@ function Additional(props) {
 
   if (Object.keys(props.forecast).length > 0) {
     var forecast = props.forecast;
-    console.log("forecast:", forecast);
     return (
         <section className="currentAdd">
           <div className="addDiv">

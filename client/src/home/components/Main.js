@@ -3,7 +3,6 @@ import React from "react";
 function Main(props) {
   if (Object.keys(props.forecast).length > 0) {
   var forecast = props.forecast;
-  console.log("forecast:", forecast);
   return (
       <section className="currentMain">
         <h1 className="currentHeader">Salt Lake City</h1>

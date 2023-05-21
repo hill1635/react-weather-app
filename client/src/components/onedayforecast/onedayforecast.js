@@ -5,7 +5,6 @@ import moment from "moment";
 function OneDayForecast(props) {
   if (Object.keys(props.day).length > 0) {
     var day = props.day;
-    console.log('day:', day);
     return (
       <div className="oneDay">
         <div className="oneDayName">{moment.unix(day.dt).format("ddd")}</div>
