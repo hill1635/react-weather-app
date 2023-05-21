@@ -29,7 +29,6 @@ function App() {
   var getWeather = (lat, long, setState) => {
     API.getSevenDay(lat, long)
       .then((res) => {
-        console.log("getWeather");
         addCurrentAQI(lat, long, res.data, setState);
       });
   };

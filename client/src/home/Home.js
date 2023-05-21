@@ -9,10 +9,6 @@ function Home(props) {
   const [forecast, setForecast] = useState({});
   var latitude = 40.758701;
   var longitude = -111.876183;
-
-  var updateHTML = (tag, value) => {
-    document.querySelector(tag).innerHTML = value;
-  };
   
   useEffect(() => {
     props.getWeather(latitude, longitude, setForecast);
