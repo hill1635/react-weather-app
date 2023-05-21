@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import SearchBar from "../components/searchbar/SearchBar";
 import Main from "./components/Main";
 import Additional from "./components/Additional";
 import HourlyForecast from "../components/hourlyForecast/HourlyForecast";
@@ -16,6 +17,7 @@ function Home(props) {
 
   return (
     <main className="weatherWrapper">
+          <SearchBar />
           <Main forecast={forecast}/>
           <Additional forecast={forecast}/>
       <section className="hourlyForecast">

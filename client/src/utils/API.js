@@ -20,7 +20,7 @@ export default {
         return axios.put("/api/users/" + id);
     },
     searchLocation: function(search) {
-        return axios.get("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=formatted_address%2Cname%2Cgeometry&input=" + search + "&inputtype=textquery&key=" + process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
+        return axios.get("https://api.mapbox.com/geocoding/v5/mapbox.places/" + search + ".json?access_token=" + process.env.REACT_APP_MAPBOX_API_KEY);
     },
     getSevenDay: function(lat, long) {
         return axios.get("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&exclude=minutely&units=imperial&appid=" + process.env.REACT_APP_WEATHERMAP_API_KEY);

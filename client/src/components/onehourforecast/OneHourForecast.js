@@ -12,7 +12,6 @@ function OneHourForecast(props) {
                 <div className="oneHourTemp">{Math.round(hour.temp) + "°F"}</div>
                 <div className="oneHourUVI">{"UVI " + Math.round(hour.uvi)}</div>
                 <div className="oneHourWind">{Math.round(hour.wind_speed) + " mph"}</div>
-
             </div>
         );
     }

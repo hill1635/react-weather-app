@@ -1,0 +1,8 @@
+.searchBar {
+    display: block;
+    width: 100%;
+}
+
+.searchBarInput {
+    width: 450px;
+}
