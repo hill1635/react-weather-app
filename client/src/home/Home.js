@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import API from "../utils/API";
 import Main from "./components/Main";
 import Additional from "./components/Additional";
 import ExtendedForecast from "../components/extendedForecast/ExtendedForecast";
@@ -12,11 +13,6 @@ function Home(props) {
   var updateHTML = (tag, value) => {
     document.querySelector(tag).innerHTML = value;
   };
-
-  // var getAQI = () => {
-  //   API.getAQI(lat, long)
-  //     .then((res) => console.log("AQI: ", res.data));
-  // };
   
   useEffect(() => {
     props.getWeather(latitude, longitude, setForecast);

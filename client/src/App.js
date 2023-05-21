@@ -16,13 +16,25 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import "./App.css";
 
 function App() {
-  var getWeather = (lat, long, callback) => {
-    API.getSevenDay(lat, long)
+  var addCurrentAQI = (lat, long, data, setState) => {
+    API.getAQI(lat, long)
       .then((res) => {
-        callback(res.data);
-        console.log("getWeather");
+        var aqiData = res.data.list[0];
+        var forecastData = data;
+        forecastData.current.aqi = aqiData;
+        setState(forecastData);
       });
   };
+
+  var getWeather = (lat, long, setState) => {
+    API.getSevenDay(lat, long)
+      .then((res) => {
+        console.log("getWeather");
+        addCurrentAQI(lat, long, res.data, setState);
+      });
+  };
+
+
 
   return (
     <Router>
