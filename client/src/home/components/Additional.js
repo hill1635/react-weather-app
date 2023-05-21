@@ -40,7 +40,7 @@ function Additional(props) {
             <p>Wind Direction: <span id="windDirection">{degToCompass(forecast.current.wind_deg)}</span></p>
           </div>
           <div className="addDiv">
-            <p>UV Index: <span id="uvi">{forecast.current.uvi}</span></p>
+            <p>UV Index: <span id="uvi">{Math.round(forecast.current.uvi)}</span></p>
             <p>Sunrise <span id="sunrise">{moment.unix(forecast.current.sunrise).format("LT")}</span></p>
             <p>Sunset <span id="sunset">{moment.unix(forecast.current.sunset).format("LT")}</span></p>
             <p>Moon Phase <span id="moonphase">{moonPhase(forecast.daily[0].moon_phase)}</span></p>

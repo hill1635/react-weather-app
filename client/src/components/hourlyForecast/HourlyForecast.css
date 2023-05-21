@@ -1,0 +1,6 @@
+.hourlyForecast {
+    display: flex;
+    width: 100%;
+    flex-direction: row !important;
+    justify-content: space-around;
+}

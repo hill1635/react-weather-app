@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import API from "../utils/API";
 import Main from "./components/Main";
 import Additional from "./components/Additional";
+import HourlyForecast from "../components/hourlyForecast/HourlyForecast";
 import ExtendedForecast from "../components/extendedForecast/ExtendedForecast";
 import "./Home.css";
 
@@ -18,8 +18,9 @@ function Home(props) {
     <main className="weatherWrapper">
           <Main forecast={forecast}/>
           <Additional forecast={forecast}/>
-      <section className="hourlyForecast col-12 mx-auto mb-5">
-        Hourly forecast
+      <section className="hourlyForecast">
+        <h3>Hourly Forecast</h3>
+        <HourlyForecast forecast={forecast} />
       </section>
       <section className="extendedForecast">
         <h3>Extended forecast</h3>
