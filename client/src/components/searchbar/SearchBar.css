@@ -1,8 +1,10 @@
 .searchBar {
+    margin: 0px auto;
     display: block;
-    width: 100%;
+    width: 75%;
+    border: solid;
 }
 
 .searchBarInput {
-    width: 450px;
+    width: 75%;
 }

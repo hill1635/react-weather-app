@@ -8,7 +8,7 @@ function SearchBar() {
     var [results, setResults] = useState([]);
     var search = (e) => {
         e.preventDefault();
-        API.searchLocation(input).then(res => {
+        API.searchLocation(e.target.parentElement.children[0].value).then(res => {
             var resultsData = res.data.features;
             resultsData.forEach(place => {
                 var name = place.place_name;
@@ -16,7 +16,9 @@ function SearchBar() {
                 if (nameArray[0].charAt(0) === "0" || nameArray[0].charAt(0) === "1" || nameArray[0].charAt(0) === "2" || nameArray[0].charAt(0) === "3" || nameArray[0].charAt(0) === "4" || nameArray[0].charAt(0) === "5" || nameArray[0].charAt(0) === "6" || nameArray[0].charAt(0) === "7" || nameArray[0].charAt(0) === "8" || nameArray[0].charAt(0) === "9") {
                     nameArray.shift();
                 }
+                if (nameArray[nameArray.length - 1] === "United States") {
                 nameArray.pop();
+                }
                 nameArray[nameArray.length - 1] = nameArray[nameArray.length - 1].replace(/[0-9]/g, '');
                 name = nameArray.join(", ");
                 name = name.trim();
@@ -25,10 +27,12 @@ function SearchBar() {
             setResults(resultsData);
         });
     }
+
+
     return (
         <div className="searchBar">
             <form>
-                <input className="searchBarInput" type="text" placeholder="Search location" onChange={e => setInput(e.target.value)}></input>
+                <input className="searchBarInput" type="text" placeholder="Search location"></input>
                 <button className="searchBarButton" type="submit" onClick={e => search(e)}>Search</button>
             </form>
             <SearchResults results={results}/>

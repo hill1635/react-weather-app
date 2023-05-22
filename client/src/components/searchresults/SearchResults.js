@@ -1,9 +1,14 @@
 import React from "react";
+import "./SearchResults.css";
 
-function SearchResults() {
+function SearchResults(props) {
+    var results = props.results;
+    console.log("results: ", results);
     return (
         <div className="searchResults">
-            <h1>Search Results</h1>
+            {results.map(result => {
+                return <span className="searchResult" key={result.id}>{result.place_name}</span>
+            })}
         </div>
     );
 }
