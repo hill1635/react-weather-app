@@ -14,3 +14,7 @@
     background-color: rgb(128, 128, 128, .25);
     cursor: pointer;
 }
+
+.selectedCheck {
+    display: none;
+}

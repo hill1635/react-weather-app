@@ -3,7 +3,7 @@ import API from "../../utils/API";
 import "./SearchBar.css";
 import SearchResults from "../searchresults/SearchResults";
 
-function SearchBar() {
+function SearchBar(props) {
     var [input, setInput] = useState("");
     var [results, setResults] = useState([]);
     var search = (e) => {
@@ -35,7 +35,7 @@ function SearchBar() {
                 <input className="searchBarInput" type="text" placeholder="Search location"></input>
                 <button className="searchBarButton" type="submit" onClick={e => search(e)}>Search</button>
             </form>
-            <SearchResults results={results}/>
+            <SearchResults results={results} setResults={setResults} locations={props.locations} setLocations={props.setLocations}/>
         </div>
     );
 }

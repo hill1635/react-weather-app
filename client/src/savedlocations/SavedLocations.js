@@ -88,8 +88,8 @@ function SavedLocations() {
   return (
     <main>
       <h1>Welcome to your Dashboard!</h1>
-      <SearchBar />
-      <LocationsDB />
+      <SearchBar locations={locations} setLocations={setLocations}/>
+      <LocationsDB locations={locations}/>
     </main>
   );
 }
