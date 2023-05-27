@@ -3,6 +3,7 @@ import Location from "../../components/location/Location";
 
 
 function LocationsDB(props) {
+    console.log("LocationsDB:", props.locations);
     if (Object.keys(props.locations).length > 0) {
         return (
             <div className="saved">
