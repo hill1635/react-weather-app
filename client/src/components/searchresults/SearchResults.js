@@ -15,7 +15,7 @@ function SearchResults(props) {
         };
         setSelected(selected);
         // Need to be able to change display of selectedCheck
-        props.setResults([]);
+        props.setLocations([...props.locations, selected]);
     }
 
     var saveResult = () => {

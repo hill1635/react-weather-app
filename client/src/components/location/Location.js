@@ -1,15 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Location.css";
 import ExtendedForecast from "../extendedForecast/ExtendedForecast";
+import API from "../../utils/API";
 
 function Location(props) {
-    console.log("Location:", props.data);
-    if (Object.keys(props.data).length > 0) {
+    const [forecast, setForecast] = useState({});
+
+    useEffect(() => {
+        API.getSevenDay(props.data.lat, props.data.long)
+            .then((res) => {
+                res.data.name = props.data.name;
+                setForecast(res.data);
+            });
+    }, [props]);
+
+    if (Object.keys(forecast).length > 0) {
     return (
         <div className="location">
-            <h3>Location</h3>
+            <h4>{forecast.name}</h4>
             <div className="locationForecast">
-                <ExtendedForecast forecast={props.data} />
+                <ExtendedForecast forecast={forecast} />
             </div>
         </div>
     );

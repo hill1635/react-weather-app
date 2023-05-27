@@ -5,8 +5,7 @@ import moment from "moment";
 import DeleteBtn from "../buttons/DeleteBtn";
 
 function ExtendedForecast(props) {
-  console.log("EF props:", props);
-  if (props & Object.keys(props.forecast).length > 0) {
+  if (Object.keys(props.forecast).length > 0) {
     var extendedForecast = props.forecast.daily;
     extendedForecast.pop();
   return (
