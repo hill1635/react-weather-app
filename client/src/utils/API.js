@@ -13,11 +13,14 @@ export default {
     logout: function() {
         return axios.post("/api/users/logout");
     },
-    getLocations: function(id) {
-        return axios.get("/api/users/" + id);
+    getLocation: function(id) {
+        return axios.get("/api/locations/" + id);
     },
-    updateLocations: function(id) {
-        return axios.put("/api/users/" + id);
+    addLocation: function(id, locationData) {
+        return axios.post("/api/locations/", locationData);
+    },
+    updateLocation: function(id) {
+        return axios.put("/api/locations/" + id);
     },
     searchLocation: function(search) {
         return axios.get("https://api.mapbox.com/geocoding/v5/mapbox.places/" + search + ".json?access_token=" + process.env.REACT_APP_MAPBOX_API_KEY);
