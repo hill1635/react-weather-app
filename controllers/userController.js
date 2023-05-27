@@ -29,7 +29,7 @@ module.exports = {
           req.session.userId = dbModel[0]._id;
           res.status(200).json({ user: req.body.email });
         });
-      })
+      })  
       .catch((err) => res.status(500).json(err));
   },
   logout: function (req, res) {

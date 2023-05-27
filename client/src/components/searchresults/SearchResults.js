@@ -16,6 +16,10 @@ function SearchResults(props) {
         setSelected(selected);
         // Need to be able to change display of selectedCheck
         props.setLocations([...props.locations, selected]);
+        API.addLocation(selected)
+            .then((res) => {
+                console.log("res:", res);
+            });
     }
 
     var saveResult = () => {

@@ -6,6 +6,14 @@ const PlaceSchema = new Schema({
         type: String,
         required: true,
     },
+    lat: {
+        type: Number,
+        required: true,
+    },
+    long: {
+        type: Number,
+        required: true,
+    },
     forecast: {
         type: Object
     },

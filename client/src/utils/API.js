@@ -16,11 +16,11 @@ export default {
     getLocation: function(id) {
         return axios.get("/api/locations/" + id);
     },
-    addLocation: function(id, locationData) {
-        return axios.post("/api/locations/", locationData);
+    addLocation: function(locationData) {
+        return axios.post("/api/places/", locationData);
     },
     updateLocation: function(id) {
-        return axios.put("/api/locations/" + id);
+        return axios.put("/api/places/" + id);
     },
     searchLocation: function(search) {
         return axios.get("https://api.mapbox.com/geocoding/v5/mapbox.places/" + search + ".json?access_token=" + process.env.REACT_APP_MAPBOX_API_KEY);
