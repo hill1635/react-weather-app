@@ -7,10 +7,10 @@ const PlaceSchema = new Schema({
         required: true,
     },
     forecast: {
-        type: ObjectId
+        type: Object
     },
     historical: {
-        type: ObjectId
+        type: Object
     },
     lastUpdated: {
         type: Date

@@ -1,4 +1,4 @@
-const db = require("../models/places");
+const db = require("../models/place");
 
 module.exports = {
     create: function (req, res) {
