@@ -18,7 +18,9 @@ function SearchResults(props) {
         props.setLocations([...props.locations, selected]);
         API.addLocation(selected)
             .then((res) => {
-                console.log("res:", res);
+                var locations = [];
+                locations.push(res.data._id);
+                API.updateUserLocations(locations);
             });
     }
 
