@@ -7,10 +7,9 @@ module.exports = {
             .catch((err) => res.status(422).json(err));
     },
     get: function (req, res) {
-        console.log("getLocations: ", req.body);
-        // db.find({ _id: req.session.placeId })
-        //     .then((dbModel) => { res.json(dbModel) })
-        //     .catch((err) => res.status(500).json(err));
+        db.find({ _id: req.params.id })
+            .then((dbModel) => { res.json(dbModel) })
+            .catch((err) => res.status(500).json(err));
     },
     remove: function (req, res) {
         console.log("remove: ", req.body);

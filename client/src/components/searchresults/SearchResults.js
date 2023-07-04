@@ -1,27 +1,44 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import API from "../../utils/API";
 import "./SearchResults.css";
 
 function SearchResults(props) {
     var [selected, setSelected] = useState({});
     var results = props.results;
+    var savedLocations = props.locations;
+
+    useEffect(() => {
+    API.getSavedData()
+        .then((res) => {
+            if (res.data.length > 0) {
+                res.data[0].locations.forEach(location => {
+                    API.getLocation(location)
+                        .then((res) => {
+                            console.log("res.data:", res.data[0]);
+                            savedLocations.push(res.data[0]);
+                            props.setLocations(savedLocations);
+                        });
+                });
+            }
+        });
+    }, [selected]);
 
     var selectResult = (e, result) => {
         e.preventDefault();
-        var selected = {
+        var selectedObj = {
             name: result.place_name,
             lat: result.center[1],
             long: result.center[0]
         };
-        setSelected(selected);
         // Need to be able to change display of selectedCheck
-        props.setLocations([...props.locations, selected]);
         API.addLocation(selected)
-            .then((res) => {
-                var locations = [];
-                locations.push(res.data._id);
-                API.updateUserLocations(locations);
-            });
+        .then((res) => {
+            savedLocations.push(res.data._id);
+            console.log("savedLocations:", savedLocations);
+            // API.updateUserLocations(savedLocations);
+            // props.setLocations(savedLocations);
+        });
+        setSelected(selectedObj);
     }
 
     var saveResult = () => {
