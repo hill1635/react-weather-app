@@ -49,5 +49,5 @@ module.exports = {
     db.find({ _id: req.session.userId })
     .then((dbModel) => {res.json(dbModel)})
     .catch((err) => res.status(500).json(err));
-  }
+  },
 };

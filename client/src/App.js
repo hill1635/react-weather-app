@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./home/Home";
@@ -16,6 +16,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import "./App.css";
 
 function App() {
+  const [ status, setStatus ] = useState(false);
   var addCurrentAQI = (lat, long, data, setState) => {
     API.getAQI(lat, long)
       .then((res) => {
@@ -33,8 +34,6 @@ function App() {
         addCurrentAQI(lat, long, res.data, setState);
       });
   };
-
-
 
   return (
     <Router>

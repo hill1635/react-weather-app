@@ -13,6 +13,9 @@ export default {
     logout: function() {
         return axios.post("/api/users/logout");
     },
+    checkSession: function() {
+        return axios.get("/api/users/login");
+    },
     updateUserLocations: function(id) {
         return axios.put("/api/users/" + id);
     },
