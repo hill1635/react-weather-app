@@ -3,11 +3,15 @@ import { Link } from "react-router-dom";
 import LogoutBtn from "../buttons/LogoutBtn";
 import "./Navbar.css";
 
-function Navbar() {
+function Navbar(props) {
   const [menuState, setMenuState] = useState("disabled");
+  const [ isLoggedIn, setIsLoggedIn ] = useState(false);
   var state = menuState;
 
   useEffect(() => {
+    if (props.user.length > 0) {
+      setIsLoggedIn(true);
+    }
     var dropdownBtn = document.querySelector(".navbar-burger");
     var dropdownMenu = document.querySelector(".navbar-menu");
 
@@ -21,7 +25,7 @@ function Navbar() {
         setMenuState("disabled");
       }
     });
-  });
+  }, [ props.user ]);
 
   return (
     <nav className="navbar shadow-none" role="navigation" aria-label="main navigation">
@@ -53,18 +57,26 @@ function Navbar() {
               <div className="navBtn">
                 <Link to="/dashboard" className="navbar-item p-0" style={{textDecoration: "none"}}>Dashboard</Link>
               </div>
-              <div className="navBtn">
-                <Link to="/login" className="navbar-item p-0" style={{textDecoration: "none"}}>Login</Link>
+              {!isLoggedIn &&
+              <div className="navLinks">
+                <div className="navBtn">
+                  <Link to="/login" className="navbar-item p-0" style={{textDecoration: "none"}}>Login</Link>
+                </div>
+                <div className="navBtn">
+                  <Link to="/signup" className="navbar-item p-0" style={{textDecoration: "none"}}>Sign Up</Link>
+                </div>
               </div>
-              <div className="navBtn">
-                <Link to="/signup" className="navbar-item p-0" style={{textDecoration: "none"}}>Sign Up</Link>
+              }
+              {isLoggedIn &&
+              <div className="navLinks">
+                <div className="navBtn">
+                  <Link to="/account" className="navbar-item p-0" style={{textDecoration: "none"}}>Account</Link>
+                </div>
+                <div className="navBtn">
+                  <LogoutBtn />
+                </div>
               </div>
-              <div className="navBtn">
-                <Link to="/account" className="navbar-item p-0" style={{textDecoration: "none"}}>Account</Link>
-              </div>
-              <div className="navBtn">
-                <LogoutBtn />
-              </div>
+              }
             </div>
           </div>
         </div>
