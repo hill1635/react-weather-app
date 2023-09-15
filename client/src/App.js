@@ -49,7 +49,7 @@ useEffect(() => {
         <Navbar user={user} />
         <Routes>
           <Route exact path="/" element={<Home getWeather={getWeather} />} />
-          <Route exact path="/dashboard" element={<SavedLocations />} />
+          <Route exact path="/dashboard" element={<SavedLocations user={user} />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/signup" element={<SignUp />} />
           <Route exact path="/account" element={<Account />} />

@@ -4,7 +4,7 @@ import LocationsDB from "./components/LocationsDB";
 import ExtendedForecast from "../components/extendedForecast/ExtendedForecast";
 import API from "../utils/API";
 
-function SavedLocations() {
+function SavedLocations(props) {
   const [locations, setLocations] = useState([]);
   const [forecasts, setForecasts] = useState([]);
   var locationsArray = [...locations];
@@ -63,14 +63,15 @@ function SavedLocations() {
   };
 
   // Retreives saved locations from DB
-  var getLocations = () => {
+  var getLocations = (id) => {
     var dbArray = [];
-    API.getSavedData()
+    API.getSavedData(id)
       .then((res) => {
         if (res > 0) {
           var savedArray = JSON.parse(res.data[0].locations);
           savedArray.forEach((location) => {
             dbArray.push(location);
+            console.log("dbArray:", dbArray);
             getWeather(location);
           });
           setLocations(dbArray);
@@ -78,12 +79,13 @@ function SavedLocations() {
         }
       })
       .catch((err) => console.log(err));
-      console.log("getLocations");
   };
 
   useEffect(() => {
-    getLocations();
-  }, []);
+    if (props.user.length > 0) {
+      getLocations(props.user[0]._id);
+    }
+  }, [ props.user ]);
 
   return (
     <main>
