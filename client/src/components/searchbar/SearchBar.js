@@ -35,7 +35,7 @@ function SearchBar(props) {
                 <input className="searchBarInput" type="text" placeholder="Search location"></input>
                 <button className="searchBarButton" type="submit" onClick={e => search(e)}>Search</button>
             </form>
-            <SearchResults results={results} setResults={setResults} locations={props.locations} setLocations={props.setLocations}/>
+            <SearchResults results={results} locations={props.locations} setLocations={props.setLocations}/>
         </div>
     );
 }
