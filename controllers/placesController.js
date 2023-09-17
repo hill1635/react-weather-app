@@ -19,7 +19,7 @@ module.exports = {
             // .catch((err) => res.status(422).json(err));
     },
     updateForecast: function (req, res) {
-        db.findOneAndUpdate(req.params.id, { forecast: req.body.locationData.forecast })
+        db.findOneAndUpdate({ id: req.params.id }, { forecast: req.body.locationData.forecast })
             .catch((err) => res.status(500).json(err));
     },
     updateHistorical: function (req, res) {

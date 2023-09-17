@@ -64,8 +64,9 @@ function SavedLocations(props) {
 
   // Retreives saved locations from DB
   var getLocations = (locationsData) => {
-    locationsData.forEach((locationObj) => {
-      API.getLocation(locationObj)
+    var locationsArray = [];
+    locationsData.forEach((locationId) => {
+      API.getLocation(locationId)
       .then((res) => {
         if (res.data.forecast === undefined) {
           var locationData = res.data;
@@ -73,10 +74,10 @@ function SavedLocations(props) {
           .then(res => { 
             locationData.forecast = res.data;
             API.updateLocation(locationData.id, locationData);
-            setLocations([...locations, locationData]);
+            locationsArray.push(locationData);
           });
         } else {
-          setLocations([...locations, res.data]);
+          locationsArray.push(res.data);
         }
       });
     });
