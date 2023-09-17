@@ -63,33 +63,37 @@ function SavedLocations(props) {
   };
 
   // Retreives saved locations from DB
-  var getLocations = (locations) => {
-    var dbArray = [];
-    locations.forEach((location) => {
-      API.getLocation(location)
-      .then((res) => { 
-        console.log("res.data:", res.data);
+  var getLocations = (locationsData) => {
+    locationsData.forEach((locationObj) => {
+      API.getLocation(locationObj)
+      .then((res) => {
         if (res.data.forecast === undefined) {
-          API.getSevenDay(res.data.lat, res.data.long)
-          .then(res => { console.log("res.data:", res.data); });
+          var locationData = res.data;
+          API.getSevenDay(locationData.lat, locationData.long)
+          // Need to save weather data to DB and setLocations with weather data
+          .then(res => { 
+            locationData.forecast = res.data;
+            console.log("🚀 ~ file: SavedLocations.js:78 ~ .then ~ weatherObj:", locationData);
+            API.updateLocation(locationData.id, locationData);
+          });
         } else {
           console.log("hasWeather");
         }
       });
     });
   };
-
+  
   useEffect(() => {
     if (props.user.length > 0) {
       getLocations(props.user[0].locations);
     }
-  }, [ props.user ]);
+  }, [ props.user, locations ]);
 
   return (
     <main>
       <h1>Welcome to your Dashboard!</h1>
       <SearchBar locations={locations} setLocations={setLocations}/>
-      <LocationsDB locations={locations}/>
+      {/* <LocationsDB locations={locations}/> */}
     </main>
   );
 }
