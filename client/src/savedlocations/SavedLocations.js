@@ -63,27 +63,25 @@ function SavedLocations(props) {
   };
 
   // Retreives saved locations from DB
-  var getLocations = (id) => {
+  var getLocations = (locations) => {
     var dbArray = [];
-    API.getSavedData(id)
-      .then((res) => {
-        if (res > 0) {
-          var savedArray = JSON.parse(res.data[0].locations);
-          savedArray.forEach((location) => {
-            dbArray.push(location);
-            console.log("dbArray:", dbArray);
-            getWeather(location);
-          });
-          setLocations(dbArray);
-          console.log("locations:", locations);
+    locations.forEach((location) => {
+      API.getLocation(location)
+      .then((res) => { 
+        console.log("res.data:", res.data);
+        if (res.data.forecast === undefined) {
+          API.getSevenDay(res.data.lat, res.data.long)
+          .then(res => { console.log("res.data:", res.data); });
+        } else {
+          console.log("hasWeather");
         }
-      })
-      .catch((err) => console.log(err));
+      });
+    });
   };
 
   useEffect(() => {
     if (props.user.length > 0) {
-      getLocations(props.user[0]._id);
+      getLocations(props.user[0].locations);
     }
   }, [ props.user ]);
 
