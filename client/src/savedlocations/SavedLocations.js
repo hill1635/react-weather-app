@@ -91,7 +91,7 @@ function SavedLocations(props) {
     <main>
       <h1>Welcome to your Dashboard!</h1>
       <SearchBar locations={locations} setLocations={setLocations}/>
-      <LocationsDB locations={locations}/>
+      {/* <LocationsDB locations={locations}/> */}
     </main>
   );
 }

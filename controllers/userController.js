@@ -42,7 +42,9 @@ module.exports = {
     }
   },
   updateLocations: function (req, res) {
-    db.findOneAndUpdate(req.session._id, { locations: req.params.id })
+    var updatedLocations = req.params.id.split(',');
+    db.findOneAndUpdate(req.session._id, { locations: [...updatedLocations] })
+    .then((dbModel) => res.json(dbModel))
     .catch((err) => res.status(500).json(err));
   },
   getLocations: function(req, res) {

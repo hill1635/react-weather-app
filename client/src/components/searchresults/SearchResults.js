@@ -8,16 +8,26 @@ function SearchResults(props) {
     var selectResult = (e, location) => {
         e.preventDefault();
         API.getLocation(location.id).then(res => {
-            if (res.data === "Not found") {
+            if (res.data === null) {
                 var locationObj = {
                     id: location.id,
                     name: location.place_name,
                     lat: location.center[1],
                     long: location.center[0]
                 };
-                API.addLocation (locationObj)
+                API.addLocation(locationObj)
                 .then(res => {
-                    console.log("addLocation:", res.data);
+                    var userLocations = [];
+                    if (props.locations.length > 0) {
+                        userLocations = props.locations.map(location => location.id);
+                        userLocations = [ ...userLocations, res.data.id ];
+                        props.setLocations([ ...props.locations, locationObj ]);
+                    } else {
+                        userLocations.push(res.data.id);
+                        props.setLocations([ locationObj ]);
+                    }
+                    API.updateUserLocations([...userLocations])
+                    .then(res => { console.log("res.data:", res.data) });
                 });
             } else {
                 console.log("data:", res.data);

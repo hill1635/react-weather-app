@@ -9,7 +9,7 @@ module.exports = {
     get: function (req, res) {
         db.findOne({ id: req.params.id })
             .then((dbModel) => { res.json(dbModel) })
-            .catch((err) => {res.json("Not found")});
+            .catch((err) => {res.status(500).json(err)});
     },
     remove: function (req, res) {
         console.log("remove: ", req.body);
