@@ -7,9 +7,9 @@ module.exports = {
             .catch((err) => res.status(422).json(err));
     },
     get: function (req, res) {
-        db.find({ _id: req.params.id })
+        db.findOne({ id: req.params.id })
             .then((dbModel) => { res.json(dbModel) })
-            .catch((err) => res.status(500).json(err));
+            .catch((err) => {res.json("Not found")});
     },
     remove: function (req, res) {
         console.log("remove: ", req.body);

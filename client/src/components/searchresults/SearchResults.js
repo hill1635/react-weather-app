@@ -7,7 +7,22 @@ function SearchResults(props) {
 
     var selectResult = (e, location) => {
         e.preventDefault();
-        console.log("location:", location);
+        API.getLocation(location.id).then(res => {
+            if (res.data === "Not found") {
+                var locationObj = {
+                    id: location.id,
+                    name: location.place_name,
+                    lat: location.center[1],
+                    long: location.center[0]
+                };
+                API.addLocation (locationObj)
+                .then(res => {
+                    console.log("addLocation:", res.data);
+                });
+            } else {
+                console.log("data:", res.data);
+            }
+        });
     }
     
     return (
