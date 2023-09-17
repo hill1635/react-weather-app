@@ -79,7 +79,8 @@ function SavedLocations(props) {
         } else {
           locationsArray.push(res.data);
         }
-      });
+      }).then(() => setLocations([...locationsArray]));
+
     });
   };
   
