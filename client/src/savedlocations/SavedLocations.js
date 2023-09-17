@@ -70,14 +70,13 @@ function SavedLocations(props) {
         if (res.data.forecast === undefined) {
           var locationData = res.data;
           API.getSevenDay(locationData.lat, locationData.long)
-          // Need to save weather data to DB and setLocations with weather data
           .then(res => { 
             locationData.forecast = res.data;
-            console.log("🚀 ~ file: SavedLocations.js:78 ~ .then ~ weatherObj:", locationData);
             API.updateLocation(locationData.id, locationData);
+            setLocations([...locations, locationData]);
           });
         } else {
-          console.log("hasWeather");
+          setLocations([...locations, res.data]);
         }
       });
     });
@@ -87,13 +86,13 @@ function SavedLocations(props) {
     if (props.user.length > 0) {
       getLocations(props.user[0].locations);
     }
-  }, [ props.user, locations ]);
+  }, [ props.user ]);
 
   return (
     <main>
       <h1>Welcome to your Dashboard!</h1>
       <SearchBar locations={locations} setLocations={setLocations}/>
-      {/* <LocationsDB locations={locations}/> */}
+      <LocationsDB locations={locations}/>
     </main>
   );
 }
