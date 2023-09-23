@@ -5,6 +5,20 @@ import "./SearchResults.css";
 function SearchResults(props) {
     var results = props.results;
 
+    var updateLocations = (locationId, locationData) => {
+        var userLocations = [];
+        if (props.locations.length > 0) {
+            userLocations = props.locations.map(location => location.id);
+            userLocations = [ ...userLocations, locationId ];
+            props.setLocations([ ...props.locations, locationData ]);
+        } else {
+            userLocations.push(locationId);
+            props.setLocations([ locationData ]);
+        }
+        API.updateUserLocations([...userLocations])
+        .then(res => { console.log("res.data:", res.data) });
+    };
+
     var selectResult = (e, location) => {
         e.preventDefault();
         API.getLocation(location.id).then(res => {
@@ -17,20 +31,10 @@ function SearchResults(props) {
                 };
                 API.addLocation(locationObj)
                 .then(res => {
-                    var userLocations = [];
-                    if (props.locations.length > 0) {
-                        userLocations = props.locations.map(location => location.id);
-                        userLocations = [ ...userLocations, res.data.id ];
-                        props.setLocations([ ...props.locations, locationObj ]);
-                    } else {
-                        userLocations.push(res.data.id);
-                        props.setLocations([ locationObj ]);
-                    }
-                    API.updateUserLocations([...userLocations])
-                    .then(res => { console.log("res.data:", res.data) });
+                    updateLocations(res.data.id, locationObj);
                 });
             } else {
-                console.log("data:", res.data);
+                updateLocations(res.data.id, res.data);
             }
         });
     }
