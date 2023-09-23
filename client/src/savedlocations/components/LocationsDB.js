@@ -13,7 +13,7 @@ function LocationsDB(props) {
         return (
             <div className="saved">
             {locations.map((locationData) => {
-                return <Location key={locationData.name} data={locationData} locations={locations} setLocation={setLocations} />
+                return <Location key={locationData.name} data={locationData} locations={locations} setLocations={setLocations} />
             })}
         </div>
         );
