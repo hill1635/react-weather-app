@@ -7,14 +7,13 @@ function LocationsDB(props) {
     
     useEffect(() => {
         setLocations(props.locations);
-        console.log("locations:", locations);
     }, [props]);
 
     if (Object.keys(locations).length > 0) {
         return (
             <div className="saved">
             {locations.map((locationData) => {
-                return <Location key={locationData.name} data={locationData} />
+                return <Location key={locationData.name} data={locationData} locations={locations} setLocation={setLocations} />
             })}
         </div>
         );
