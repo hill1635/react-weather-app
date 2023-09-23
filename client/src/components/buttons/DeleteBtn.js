@@ -5,9 +5,12 @@ function DeleteBtn(props) {
     
     var deleteLocation = () => {
         var locations = props.locations;
+        var userLocations = locations.map((location) => location.id);
         var index = locations.findIndex(obj => obj.id == props.placeId);
+        var userIndex = userLocations.indexOf(props.placeId);
         locations.splice(index, 1);
-        API.updateUserLocations(JSON.stringify(locations));
+        userLocations.splice(userIndex, 1);
+        API.updateUserLocations(JSON.stringify(userLocations));
         props.setLocations(locations);
     };
 
