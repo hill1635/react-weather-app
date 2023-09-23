@@ -13,7 +13,6 @@ function Location(props) {
                 res.data.name = props.data.name;
                 setForecast(res.data);
             });
-            console.log("locations:", props.locations);
     }, [props]);
 
     if (Object.keys(forecast).length > 0) {
@@ -23,7 +22,7 @@ function Location(props) {
             <div className="locationForecast">
                 <ExtendedForecast forecast={forecast} />
             </div>
-            <DeleteBtn placeId={props.data.id} locations={props.locations}/>
+            <DeleteBtn placeId={props.data.id} locations={props.locations} setLocations={props.setLocations}/>
         </div>
     );
     }

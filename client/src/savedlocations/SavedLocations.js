@@ -30,7 +30,6 @@ function SavedLocations(props) {
 
       locationsArray.push(newLocation);
       getWeather(newLocation);
-      console.log("searchLocation: ", locations);
     })
     .catch((err) => console.log(err));
   };
@@ -46,7 +45,6 @@ function SavedLocations(props) {
     
     searchLocation(inputValue, lastId);
     updateLocations(locationsArray);
-    console.log("saveLocation: ", locations);
   };
 
   //Gets weather for saved locations

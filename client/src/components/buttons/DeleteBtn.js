@@ -3,9 +3,16 @@ import API from "../../utils/API";
 
 function DeleteBtn(props) {
     
+    var deleteLocation = () => {
+        var locations = props.locations;
+        var index = locations.findIndex(obj => obj.id == props.placeId);
+        locations.splice(index, 1);
+        API.updateUserLocations(JSON.stringify(locations));
+        props.setLocations(locations);
+    };
+
     useEffect(() => {
-        console.log("props:", props);
-    });
+    }, [props]);
     // var locations = props.locations;
     // var info = (id) => {
     //     var index = locations.findIndex(obj => obj.id == id);
@@ -15,7 +22,7 @@ function DeleteBtn(props) {
     // };
 
     return (
-        <button>Delete</button>
+        <button onClick={deleteLocation}>Delete</button>
     );
 }
 
