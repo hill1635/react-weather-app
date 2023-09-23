@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Location.css";
 import ExtendedForecast from "../extendedForecast/ExtendedForecast";
+import DeleteBtn from "../buttons/DeleteBtn";
 import API from "../../utils/API";
 
 function Location(props) {
@@ -21,6 +22,7 @@ function Location(props) {
             <div className="locationForecast">
                 <ExtendedForecast forecast={forecast} />
             </div>
+            <DeleteBtn />
         </div>
     );
     }
