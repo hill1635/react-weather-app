@@ -19,21 +19,21 @@ function App() {
   const [ status, setStatus ] = useState(false);
   const [ user, setUser ] = useState({});
   var addCurrentAQI = (lat, long, data, setState) => {
-    // API.getAQI(lat, long)
-    //   .then((res) => {
-    //     var aqiData = res.data.list[0];
-    //     var forecastData = data;
-    //     forecastData.current.aqi = aqiData;
-    //     setState(forecastData);
-    //     console.log("forecastData:", forecastData);
-    //   });
+    API.getAQI(lat, long)
+      .then((res) => {
+        var aqiData = res.data.list[0];
+        var forecastData = data;
+        forecastData.current.aqi = aqiData;
+        setState(forecastData);
+        console.log("forecastData:", forecastData);
+      });
   };
 
   var getWeather = (lat, long, setState) => {
-    // API.getSevenDay(lat, long)
-    //   .then((res) => {
-    //     addCurrentAQI(lat, long, res.data, setState);
-    //   });
+    API.getSevenDay(lat, long)
+      .then((res) => {
+        addCurrentAQI(lat, long, res.data, setState);
+      });
   };
   
 useEffect(() => {
