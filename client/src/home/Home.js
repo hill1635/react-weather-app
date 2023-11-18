@@ -21,7 +21,7 @@ function Home(props) {
 
   return (
     <main className="weatherWrapper">
-          <SearchBar setLocation={setLocation}/>
+          <SearchBar setLocations={setLocation}/>
           <Main forecast={forecast} location={location}/>
           <Additional forecast={forecast}/>
       <section className="hourlyForecast">

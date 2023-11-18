@@ -1,12 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import API from "../../utils/API";
-import "./SearchBar.scss";
-import SearchResults from "../searchresults/SearchResults";
-import SearchBtn from "../buttons/SearchBtn";
 
-function SearchBar(props) {
-    var [input, setInput] = useState("");
-    var [results, setResults] = useState([]);
+function SearchBtn(props) {
+
     var search = (e) => {
         e.preventDefault();
         API.searchLocation(e.target.parentElement.children[0].value).then(res => {
@@ -25,20 +21,13 @@ function SearchBar(props) {
                 name = name.trim();
                 place.place_name = name;
             });
-            setResults(resultsData);
+            props.setResults(resultsData);
         });
     }
 
-
     return (
-        <div className="searchWrapper">
-            <form className="searchBar">
-                <input className="searchBarInput" type="text" placeholder="Search location"></input>
-                <SearchBtn setResults={setResults}/>
-            </form>
-            <SearchResults results={results} locations={props.locations} setLocations={props.setLocations}/>
-        </div>
+        <button className="searchBarButton" type="submit" onClick={e => search(e)}>Search</button>
     );
 }
 
-export default SearchBar;
+export default SearchBtn;

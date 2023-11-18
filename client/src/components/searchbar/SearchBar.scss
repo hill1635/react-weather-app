@@ -2,7 +2,7 @@
 @import '../../styles/mixins';
 
 .searchWrapper {
-    @include flex-row;
+    @include flex-column;
     @include center-around;
     padding: $padding-sm;
     margin: $margin-sm;
