@@ -7,9 +7,10 @@ body, html {
  padding: $padding-sm;
 }
 
-header {
+nav {
   padding: $padding-sm;
   margin: $margin-sm;
+  border-radius: $radius-5;
 }
 
 footer {
@@ -25,7 +26,7 @@ section {
   margin: $margin-sm;
   background-color: $color-primary;
   border: none;
-  border-radius: .75rem;
+  border-radius: $radius-5;
 }
 
 p {
