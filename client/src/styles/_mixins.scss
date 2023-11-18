@@ -1,11 +1,21 @@
 @mixin horizontal-list {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
 }
 
 @mixin vertical-list {
     display: flex;
     flex-direction: column;
+}
+
+@mixin center-around {
     justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+@mixin center-between {
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
 }

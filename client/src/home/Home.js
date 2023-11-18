@@ -4,7 +4,7 @@ import Main from "./components/Main";
 import Additional from "./components/Additional";
 import HourlyForecast from "../components/hourlyForecast/HourlyForecast";
 import ExtendedForecast from "../components/extendedForecast/ExtendedForecast";
-import "./Home.css";
+import "./Home.scss";
 
 function Home(props) {
   const defaultLocation = {
