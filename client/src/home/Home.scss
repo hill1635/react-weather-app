@@ -2,18 +2,18 @@
 @import "../styles/mixins";
 
 .weatherWrapper {
-    @include horizontal-list;
+    @include flex-row;
     @include center-around;
 }
 
 .currentMain {
-    @include horizontal-list;
+    @include flex-row;
     @include center-around;
     width: 50%;
 }
 
 .weatherWrapper > section {
-    @include horizontal-list;
+    @include flex-row;
     @include center-around;
     min-width: 33%;
 }
@@ -23,7 +23,7 @@
 }
 
 .currentWeather {
-    @include horizontal-list;
+    @include flex-row;
     @include center-around;
     width: 100%;
 }
@@ -33,15 +33,15 @@
 }
 
 .currentAdd {
-    @include horizontal-list;
+    @include flex-row;
     @include center-around;
 }
 
 .addDiv {
-    @include vertical-list;
+    @include flex-column;
 }
 
 .extendedForecast {
-    @include vertical-list;
+    @include flex-column;
     width: 100%;
 }

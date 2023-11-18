@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import API from "../../utils/API";
-import "./SearchBar.css";
+import "./SearchBar.scss";
 import SearchResults from "../searchresults/SearchResults";
 
 function SearchBar(props) {
@@ -30,8 +30,8 @@ function SearchBar(props) {
 
 
     return (
-        <div className="searchBar">
-            <form>
+        <div className="searchWrapper">
+            <form className="searchBar">
                 <input className="searchBarInput" type="text" placeholder="Search location"></input>
                 <button className="searchBarButton" type="submit" onClick={e => search(e)}>Search</button>
             </form>

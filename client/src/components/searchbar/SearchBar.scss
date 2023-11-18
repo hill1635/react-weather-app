@@ -1,0 +1,31 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.searchWrapper {
+    @include flex-row;
+    @include center-around;
+    padding: $padding-sm;
+    margin: $margin-sm;
+    width: 100%;
+}
+
+.searchBar {
+    @include flex-row;
+    width: 50%;
+    margin: 0px auto;
+    background-color: $color-primary;
+    border-radius: $radius-5;
+}
+
+.searchBarInput {
+    flex: 2;
+    padding: $padding-xs $padding-sm;
+    border: none;
+    border-radius: $radius-5;
+}
+
+.searchBarInput {
+    &:focus {
+        outline: none;
+    }
+}
