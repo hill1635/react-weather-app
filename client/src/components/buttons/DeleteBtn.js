@@ -12,6 +12,7 @@ function DeleteBtn(props) {
         userLocations.splice(userIndex, 1);
         API.updateUserLocations(JSON.stringify(userLocations));
         props.setLocations(locations);
+        window.location.reload();
     };
 
     useEffect(() => {
