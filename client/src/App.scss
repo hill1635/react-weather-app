@@ -4,18 +4,28 @@
 body, html {
  font-family: $font-primary;
  background-color: $color-secondary;
+ padding: $padding-sm;
 }
 
 header {
-
+  padding: $padding-sm;
+  margin: $margin-sm;
 }
 
 footer {
-
+  padding: $padding-sm;
+  margin: $margin-sm;
 }
 
 div {
+}
+
+section {
+  padding: $padding-sm;
+  margin: $margin-sm;
   background-color: $color-primary;
+  border: none;
+  border-radius: .75rem;
 }
 
 p {
