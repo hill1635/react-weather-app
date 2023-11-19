@@ -14,6 +14,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import "./App.scss";
+import "./components/buttons/Buttons.scss";
 
 function App() {
   const [ status, setStatus ] = useState(false);

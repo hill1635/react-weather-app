@@ -26,7 +26,7 @@ function DeleteBtn(props) {
     // };
 
     return (
-        <button onClick={deleteLocation}>Delete</button>
+        <button className="deleteBtn" onClick={deleteLocation}>Delete</button>
     );
 }
 

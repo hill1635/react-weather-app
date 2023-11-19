@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Location.css";
+import "./Location.scss";
 import ExtendedForecast from "../extendedForecast/ExtendedForecast";
 import DeleteBtn from "../buttons/DeleteBtn";
 import API from "../../utils/API";
@@ -17,13 +17,13 @@ function Location(props) {
 
     if (Object.keys(forecast).length > 0) {
     return (
-        <div className="location">
+        <section className="location">
             <h4>{forecast.name}</h4>
             <div className="locationForecast">
                 <ExtendedForecast forecast={forecast} />
+                <DeleteBtn placeId={props.data.id} locations={props.locations} setLocations={props.setLocations}/>
             </div>
-            <DeleteBtn placeId={props.data.id} locations={props.locations} setLocations={props.setLocations}/>
-        </div>
+        </section>
     );
     }
 }

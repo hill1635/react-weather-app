@@ -1,0 +1,8 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.extendedForecast {
+    @include flex-row;
+    @include center-around;
+    flex: 1;
+}

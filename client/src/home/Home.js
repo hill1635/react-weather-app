@@ -13,24 +13,24 @@ function Home(props) {
     longitude: -111.8910
   }
   const [forecast, setForecast] = useState({});
-  const [location, setLocation] = useState(defaultLocation);
+  const [location, setLocation] = useState([defaultLocation]);
   
   useEffect(() => {
-    props.getWeather(location.latitude, location.longitude, setForecast);
+    props.getWeather(location[0].latitude, location[0].longitude, setForecast);
   }, [props, location]);
 
   return (
     <main className="weatherWrapper">
-          <SearchBar setLocations={setLocation}/>
-          <Main forecast={forecast} location={location}/>
+          <SearchBar setLocations={setLocation} locations={location}/>
+          <Main forecast={forecast} location={location[0]}/>
           <Additional forecast={forecast}/>
       <section className="hourlyForecast">
         <h3>Hourly Forecast</h3>
         <HourlyForecast forecast={forecast} />
       </section>
-      <section className="extendedForecast">
-        <h3>Extended forecast</h3>
-        <ExtendedForecast forecast={forecast} />
+      <section className="extendedHome">
+        <h3 className="extendedTitle">Extended forecast</h3>
+          <ExtendedForecast forecast={forecast} />
       </section>
     </main>
   );

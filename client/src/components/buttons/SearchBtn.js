@@ -26,7 +26,7 @@ function SearchBtn(props) {
     }
 
     return (
-        <button className="searchBarButton" type="submit" onClick={e => search(e)}>Search</button>
+        <button className="searchBtn" type="submit" onClick={e => search(e)}>Search</button>
     );
 }
 

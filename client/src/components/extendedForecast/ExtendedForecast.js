@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import "./ExtendedForecast.css";
+import "./ExtendedForecast.scss";
 import OneDayForecast from "../onedayforecast/OneDayForecast";
 import moment from "moment";
 import DeleteBtn from "../buttons/DeleteBtn";

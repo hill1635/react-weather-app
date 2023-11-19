@@ -1,0 +1,13 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+
+.location {
+    text-align: center;
+    margin: $margin-md 0px;
+    padding: 20px;
+}
+
+.locationForecast {
+    @include flex-row;
+}

@@ -41,7 +41,10 @@
     @include flex-column;
 }
 
-.extendedForecast {
-    @include flex-column;
+.extendedHome {
+    width: 100%;
+}
+
+.extendedTitle {
     width: 100%;
 }
