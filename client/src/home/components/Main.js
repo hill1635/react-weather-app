@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 function Main(props) {
-  if (Object.keys(props.forecast).length > 0) {
-  var forecast = props.forecast;
+  const [ forecast, setForecast ] = useState({});
+  const [ location, setLocation ] = useState({});
+  
+  useEffect(() => {
+    setForecast(props.forecast);
+    setLocation(props.location);
+  }, [props]);
+  
+  if (Object.keys(forecast).length > 0) {
+    console.log("location:", location);
   return (
       <section className="currentMain">
-        <h1 className="currentHeader">{props.location.name}</h1>
+        <h1 className="currentHeader">{location.name}</h1>
         <div className="currentWeather">
           <img className="weatherIcon" id="icon" src={"http://openweathermap.org/img/wn/" + forecast.current.weather[0].icon + "@2x.png"}></img>
           <div className="currentDetails">
