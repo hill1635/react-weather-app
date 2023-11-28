@@ -14,6 +14,9 @@ const UserSchema = new Schema({
         required: "Password is required.",
         validate: [({ length }) => length >= 8, "Password needs to be longer."],
     },
+    settings: {
+        type: ObjectId
+    },
     locations: {
         type: Array
     },
