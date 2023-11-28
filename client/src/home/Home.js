@@ -4,6 +4,7 @@ import Main from "./components/Main";
 import Additional from "./components/Additional";
 import HourlyForecast from "../components/hourlyForecast/HourlyForecast";
 import ExtendedForecast from "../components/extendedForecast/ExtendedForecast";
+import API from "../utils/API";
 import "./Home.scss";
 
 function Home(props) {
@@ -20,7 +21,7 @@ function Home(props) {
   return (
     <main className="weatherWrapper">
       <section>
-        <SearchBar setLocations={setLocation}/>
+        <SearchBar setLocations={setLocation} api={API.updateSettings}/>
       </section>
       {location.length > 0 &&
       <div className= "weatherWrapper">
