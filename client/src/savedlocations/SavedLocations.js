@@ -91,7 +91,7 @@ function SavedLocations(props) {
   return (
     <main>
       <h1>Welcome to your Dashboard!</h1>
-      <SearchBar locations={locations} setLocations={setLocations}/>
+      <SearchBar locations={locations} setLocations={setLocations} api={API.updateUserLocations}/>
       <LocationsDB locations={locations}/>
     </main>
   );

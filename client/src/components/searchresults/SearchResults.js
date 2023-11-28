@@ -20,7 +20,7 @@ function SearchResults(props) {
             props.setLocations([ locationData ]);
         }
         console.log("userLocations:", userLocations);
-        API.updateUserLocations(JSON.stringify(userLocations))
+        props.api(JSON.stringify(userLocations))
         .then(res => { console.log("res.data:", res.data) });
     };
 
