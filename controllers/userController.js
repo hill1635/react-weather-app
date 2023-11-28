@@ -46,7 +46,13 @@ module.exports = {
       db.findOneAndUpdate(req.session._id, { locations: [...updatedLocations] })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(500).json(err));
-
+  },
+  updateSettings: function (req, res) {
+    var updatedSettings = JSON.parse(req.params.id);
+    console.log("updatedSettings:", updatedSettings);
+      // db.findOneAndUpdate(req.session._id, { settings: updatedSettings })
+      // .then((dbModel) => res.json(dbModel))
+      // .catch((err) => res.status(500).json(err));
   },
   getLocations: function(req, res) {
     db.find({ _id: req.session.userId })
