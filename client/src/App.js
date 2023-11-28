@@ -40,7 +40,7 @@ function App() {
 useEffect(() => {
   API.checkSession()
   .then((res) => {
-    setUser(res.data);
+    setUser(res.data[0]);
   });
 }, []);
 
