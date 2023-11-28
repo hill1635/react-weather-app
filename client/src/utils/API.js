@@ -17,7 +17,7 @@ export default {
         return axios.get("/api/users/login");
     },
     updateUserLocations: function(id) {
-        return axios.put("/api/users/" + id);
+        return axios.put("/api/users/" + id + "/locations");
     },
     getUserData: function(id) {
         return axios.get("/api/users/" + id);
