@@ -19,7 +19,7 @@ export default {
     updateUserLocations: function(id) {
         return axios.put("/api/users/" + id);
     },
-    getSavedData: function(id) {
+    getUserData: function(id) {
         return axios.get("/api/users/" + id);
     },
     getLocation: function(id) {
