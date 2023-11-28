@@ -22,6 +22,9 @@ export default {
     getUserData: function(id) {
         return axios.get("/api/users/" + id);
     },
+    updateSettings: function(id) {
+        return axios.put("/api/users/" + id);
+    },
     getLocation: function(id) {
         return axios.get("/api/places/" + id);
     },
