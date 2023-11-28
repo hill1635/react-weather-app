@@ -13,6 +13,7 @@ function Home(props) {
   useEffect(() => {
     if (location.length > 0) {
       props.getWeather(location[0].lat, location[0].long, setForecast);
+      console.log("location:", location);
     }
   }, [props, location]);
 
