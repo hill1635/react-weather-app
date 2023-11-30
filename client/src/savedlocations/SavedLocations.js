@@ -66,6 +66,7 @@ function SavedLocations(props) {
     locationsData.forEach((locationId) => {
       API.getLocation(locationId)
       .then((res) => {
+        console.log('res.data', res.data);
         if (res.data.forecast === undefined) {
           var locationData = res.data;
           API.getSevenDay(locationData.lat, locationData.long)
@@ -83,6 +84,7 @@ function SavedLocations(props) {
   };
   
   useEffect(() => {
+    console.log('props.user.locations', props);
     if (props.user.locations !== undefined) {
       getLocations(props.user.locations);
     }

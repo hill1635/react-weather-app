@@ -40,7 +40,7 @@ function App() {
 useEffect(() => {
   API.checkSession()
   .then((res) => {
-    if (res.data.user !== undefined) {
+    if (res.data[0] !== undefined) {
       setUser(res.data[0]);
     }
   });
