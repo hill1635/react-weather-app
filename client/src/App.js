@@ -19,7 +19,7 @@ import "./components/buttons/Buttons.scss";
 function App() {
   const [ status, setStatus ] = useState(false);
   const [ user, setUser ] = useState({});
-  
+
   var addCurrentAQI = (lat, long, data, setState) => {
     API.getAQI(lat, long)
       .then((res) => {
@@ -27,7 +27,6 @@ function App() {
         var forecastData = data;
         forecastData.current.aqi = aqiData;
         setState(forecastData);
-        console.log("forecastData:", forecastData);
       });
   };
 

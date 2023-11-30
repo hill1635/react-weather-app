@@ -10,7 +10,6 @@ function Main(props) {
   }, [props]);
   
   if (Object.keys(forecast).length > 0) {
-    console.log("location:", location);
   return (
       <section className="currentMain">
         <h1 className="currentHeader">{location.name}</h1>

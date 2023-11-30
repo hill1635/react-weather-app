@@ -7,19 +7,16 @@ function SearchResults(props) {
 
     var updateLocations = (locationId, locationData) => {
         var userLocations = [];
-        console.log("props.locations:", props.locations);
         if (props.locations !== undefined ) {
             if (props.locations.length > 0) {
                 userLocations = props.locations.map(location => location.id);
                 userLocations = [ ...userLocations, locationId ];
                 props.setLocations([ ...props.locations, locationData ]);
-                console.log("locationData:", locationData);
             } 
         } else {
             userLocations.push(locationId);
             props.setLocations([ locationData ]);
         }
-        console.log("userLocations:", userLocations);
         props.api(JSON.stringify(userLocations))
         .then(res => { console.log("res.data:", res.data) });
     };

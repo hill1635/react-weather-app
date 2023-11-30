@@ -10,11 +10,11 @@ import "./Home.scss";
 function Home(props) {
   const [forecast, setForecast] = useState({});
   const [location, setLocation] = useState([]);
+  const [settings, setSettings] = useState({});
   
   useEffect(() => {
     if (location.length > 0) {
       props.getWeather(location[0].lat, location[0].long, setForecast);
-      console.log("location:", location);
     }
   }, [props, location]);
 
