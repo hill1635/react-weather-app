@@ -83,10 +83,9 @@ function SavedLocations(props) {
   };
   
   useEffect(() => {
-    console.log("user:", props);
-    // if (props.user.locations !== undefined) {
-    //   getLocations(props.user.locations);
-    // }
+    if (props.user.locations !== undefined) {
+      getLocations(props.user.locations);
+    }
   }, [ props.user ]);
 
   return (
