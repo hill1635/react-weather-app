@@ -19,6 +19,7 @@ import "./components/buttons/Buttons.scss";
 function App() {
   const [ status, setStatus ] = useState(false);
   const [ user, setUser ] = useState({});
+  const [ settings, setSettings ] = useState({});
   var addCurrentAQI = (lat, long, data, setState) => {
     API.getAQI(lat, long)
       .then((res) => {
@@ -51,7 +52,7 @@ useEffect(() => {
       <div className="background">
         <Navbar user={user} />
         <Routes>
-          <Route exact path="/" element={<Home getWeather={getWeather} />} />
+          <Route exact path="/" element={<Home getWeather={getWeather} user={user} />} />
           <Route exact path="/dashboard" element={<SavedLocations user={user} />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/signup" element={<SignUp />} />
