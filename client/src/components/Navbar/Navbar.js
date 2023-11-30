@@ -9,7 +9,7 @@ function Navbar(props) {
   var state = menuState;
 
   useEffect(() => {
-    if (props.user.length > 0) {
+    if (props.user !== undefined) {
       setIsLoggedIn(true);
     }
     var dropdownBtn = document.querySelector(".navbar-burger");
