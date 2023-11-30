@@ -9,9 +9,10 @@ function Navbar(props) {
   var state = menuState;
 
   useEffect(() => {
-    if (props.user !== undefined) {
+    if (Object.keys(props.user).length > 0) {
       setIsLoggedIn(true);
     }
+
     var dropdownBtn = document.querySelector(".navbar-burger");
     var dropdownMenu = document.querySelector(".navbar-menu");
 
@@ -25,7 +26,7 @@ function Navbar(props) {
         setMenuState("disabled");
       }
     });
-  }, [ props.user ]);
+  }, [ props.user, isLoggedIn ]);
 
   return (
     <nav className="navbar shadow-none" role="navigation" aria-label="main navigation">
